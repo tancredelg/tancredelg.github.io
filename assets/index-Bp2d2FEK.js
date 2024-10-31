@@ -1,4 +1,4 @@
-(function(){const a=document.createElement("link").relList;if(a&&a.supports&&a.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))d(e);new MutationObserver(e=>{for(const s of e)if(s.type==="childList")for(const r of s.addedNodes)r.tagName==="LINK"&&r.rel==="modulepreload"&&d(r)}).observe(document,{childList:!0,subtree:!0});function u(e){const s={};return e.integrity&&(s.integrity=e.integrity),e.referrerPolicy&&(s.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?s.credentials="include":e.crossOrigin==="anonymous"?s.credentials="omit":s.credentials="same-origin",s}function d(e){if(e.ep)return;e.ep=!0;const s=u(e);fetch(e.href,s)}})();document.querySelector("#app").innerHTML=`
+(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))d(e);new MutationObserver(e=>{for(const s of e)if(s.type==="childList")for(const r of s.addedNodes)r.tagName==="LINK"&&r.rel==="modulepreload"&&d(r)}).observe(document,{childList:!0,subtree:!0});function u(e){const s={};return e.integrity&&(s.integrity=e.integrity),e.referrerPolicy&&(s.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?s.credentials="include":e.crossOrigin==="anonymous"?s.credentials="omit":s.credentials="same-origin",s}function d(e){if(e.ep)return;e.ep=!0;const s=u(e);fetch(e.href,s)}})();document.querySelector("#app").innerHTML=`
   <header class="fixed top-0 z-40 w-screen">
     <nav class="w-responsive py-3 sm:py-4 xl:py-5 flex gap-4 sm:gap-6 xl:gap-7 justify-center items-center">
         <a href="#home" class="link-nav">Home</a>
@@ -9,7 +9,7 @@
   <main>
     <section id="home" class="from-purple-200 to-purple-100 dark:from-aqua-800 dark:to-aqua-850">
       <div class="section-container">
-        <h1 class="font-merriweather font-thin leading-[0.6]">Tancrède</h1>
+        <h1 class="font-merriweather font-thin leading-[0.8]">Tancrède</h1>
         <h2 class="text-aqua-300/30 font-merriweather font-black not-italic">Lamort de Gail</h2>
         <p class="mt-3 mb-10">
             Hi, I'm Tancrède, an undergraduate computer science student at McGill University interested in everything 
@@ -40,7 +40,7 @@
     <section id="projects" class="from-purple-50 to-fuchsia-100 dark:from-aqua-850 dark:to-aqua-900">
       <div class="section-container">
         <h2 class="mb-4">Projects</h2>
-        <div class="mb-3 flex-initial flex gap-2 xl:gap-4">
+        <div class="mb-3 w-fit flex-initial flex rounded-lg bg-black/15">
           <button class="tab-button">Project 1</button>
           <button class="tab-button">Project 2</button>
           <button class="tab-button">Project 3</button>
@@ -79,7 +79,7 @@
     <section id="education" class="snap-end from-fuchsia-100 to-transparent dark:from-aqua-900 dark:to-aqua-950">
       <div class="section-container">
         <h2 class="mb-4">Education</h2>
-        <div class="mb-3 flex-initial flex gap-2 xl:gap-4">
+        <div class="mb-3 w-fit flex-initial flex rounded-lg bg-black/15">
           <button class="tab-button">Undergraduate</button>
           <button class="tab-button">High School</button>
         </div>
@@ -157,4 +157,4 @@
       </div>
     </section>
   </main>
-`;const p=document.querySelectorAll(".section-container"),m=new IntersectionObserver(t=>{t.forEach(a=>a.target.style.opacity=a.intersectionRatio)},{root:null,threshold:[0,.2,.4,.6,.8,1]});p.forEach(t=>m.observe(t));const l=document.querySelectorAll("#projects .tab-button"),c=document.querySelectorAll("#projects .tab");let n=Math.max(...Array.from(c).map(t=>t.offsetHeight));for(let t=0;t<l.length;t++)c[t].style.display="none",c[t].style.height=n+"px",l[t].onclick=()=>{for(let a=0;a<c.length;a++)a===t?(c[a].style.display="block",l[a].classList.add("bg-aqua-50/5","drop-shadow-white-md","dark:text-aqua-100")):(c[a].style.display="none",l[a].classList.remove("bg-aqua-50/5","drop-shadow-white-md","dark:text-aqua-100"))};c[0].style.display="block";l[0].classList.add("bg-aqua-50/5","drop-shadow-white-md","dark:text-aqua-100");const i=document.querySelectorAll("#education .tab-button"),o=document.querySelectorAll("#education .tab");n=Math.max(...Array.from(o).map(t=>t.offsetHeight));for(let t=0;t<i.length;t++)o[t].style.display="none",o[t].style.height=n+"px",i[t].onclick=()=>{for(let a=0;a<o.length;a++)a===t?(o[a].style.display="block",i[a].classList.add("bg-aqua-50/5","drop-shadow-white-md","dark:text-aqua-100")):(o[a].style.display="none",i[a].classList.remove("bg-aqua-50/5","drop-shadow-white-md","dark:text-aqua-100"))};o[0].style.display="block";i[0].classList.add("bg-aqua-50/5","drop-shadow-white-md","dark:text-aqua-100");
+`;const p=document.querySelectorAll(".section-container > *"),m=new IntersectionObserver(a=>{a.forEach(t=>t.target.style.opacity=t.intersectionRatio*t.intersectionRatio)},{root:null,rootMargin:"-8%",threshold:[0,.1,.2,.3,.4,.5,.6,.7,.8,.9,1]});p.forEach(a=>m.observe(a));const i=document.querySelectorAll("#projects .tab-button"),c=document.querySelectorAll("#projects .tab");let n=Math.max(...Array.from(c).map(a=>a.offsetHeight));for(let a=0;a<i.length;a++)c[a].style.display="none",c[a].style.height=n+"px",i[a].onclick=()=>{for(let t=0;t<c.length;t++)t===a?(c[t].style.display="block",i[t].classList.add("bg-aqua-50/5","drop-shadow-white-md","dark:text-aqua-100")):(c[t].style.display="none",i[t].classList.remove("bg-aqua-50/5","drop-shadow-white-md","dark:text-aqua-100"))};c[0].style.display="block";i[0].classList.add("bg-aqua-50/5","drop-shadow-white-md","dark:text-aqua-100");const l=document.querySelectorAll("#education .tab-button"),o=document.querySelectorAll("#education .tab");n=Math.max(...Array.from(o).map(a=>a.offsetHeight));for(let a=0;a<l.length;a++)o[a].style.display="none",o[a].style.height=n+"px",l[a].onclick=()=>{for(let t=0;t<o.length;t++)t===a?(o[t].style.display="block",l[t].classList.add("bg-aqua-50/5","drop-shadow-white-md","dark:text-aqua-100")):(o[t].style.display="none",l[t].classList.remove("bg-aqua-50/5","drop-shadow-white-md","dark:text-aqua-100"))};o[0].style.display="block";l[0].classList.add("bg-aqua-50/5","drop-shadow-white-md","dark:text-aqua-100");
