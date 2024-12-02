@@ -23,11 +23,11 @@ display=swap');
   }
 
   .w-responsive {
-    @apply mx-auto w-[100vw] xl:w-[56vw] px-[3vw] overflow-clip;
+    @apply mx-auto w-[100vw] xl:w-[60vw] px-[3vw] overflow-clip;
   }
 
   .section-container {
-    @apply w-responsive min-h-[100dvh] pt-[10dvh] flex flex-col justify-start 
+    @apply w-responsive min-h-[100dvh] pt-[10dvh] flex flex-col justify-center 
     transition-opacity ease-in-out duration-1000;
   }
   
@@ -42,7 +42,7 @@ display=swap');
 
   .contact {
     @apply link
-    px-3 py-2 flex gap-2 items-center text-sm sm:text-lg
+    px-2 py-1.5 sm:px-3 sm:py-2 flex gap-2 items-center text-xs sm:text-lg
     rounded-lg bg-aqua-600/25 dark:text-aqua-100/80 dark:bg-aqua-100/10;
   }
   .contact:hover {
@@ -51,7 +51,7 @@ display=swap');
   }
   
   .link-nav {
-    @apply link lowercase
+    @apply link lowercase outline-none
     text-base sm:text-lg xl:text-xl font-jetbrains-mono font-normal
   }
   .link-nav:hover {
@@ -72,8 +72,8 @@ display=swap');
   .card-project:last-child { @apply mr-0 sm:mr-[70%]; }
 
   .tab-button {
-    @apply py-2 px-3 sm:py-1.5 sm:px-4
-    rounded-md sm:rounded-lg
+    @apply py-1.5 px-3 sm:py-2 sm:px-4
+    rounded-md sm:rounded-lg 
     text-sm sm:text-base xl:text-lg font-jetbrains-mono
     dark:text-aqua-100/60
     transition-all duration-300 ease-out;
@@ -83,12 +83,19 @@ display=swap');
   }
   
   .tab {
-    @apply p-2 w-full max-h-[70dvh] min-h-0 flex flex-col
-    transition-all duration-300 ease-out;
+    @apply w-full max-h-[70dvh] min-h-0 flex flex-col;
+    /* transition-all duration-300 ease-out; */
 
-    /*> div:not(.courselist) {*/
-    /*  @apply mb-1 bg-amber-200/20;*/
-    /*}*/
+    /* > div:not(.courselist) {
+     @apply mb-1 bg-amber-200/20;
+    } */
+  }
+  .tab-content {
+    @apply p-2.5 sm:p-3 flex flex-col gap-2
+    bg-white/5 rounded-lg;
+  }
+  *:has(+ .tab-content) {
+    @apply p-2.5 sm:p-3;
   }
   
   .courselist {
@@ -120,7 +127,7 @@ display=swap');
   }
   
   p {
-    @apply text-xs xl:text-base;
+    @apply text-xs xl:text-lg;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -132,7 +139,7 @@ display=swap');
     italic text-aqua-800/80 dark:text-aqua-100/80;
   }
   h2 { @apply text-4xl sm:text-6xl xl:text-7xl; }
-  h3 { @apply text-3xl sm:text-5xl xl:text-6xl; }
+  h3 { @apply text-xl sm:text-3xl xl:text-4xl; }
   h4 { @apply text-lg  sm:text-2xl xl:text-3xl; }
   h5 { @apply text-lg  xl:text-xl; }
   h6 { @apply text-base xl:text-lg; }

@@ -1,3 +1,4 @@
+/*
 import './style.css'
 
 document.querySelector('#app').innerHTML = `
@@ -160,7 +161,7 @@ document.querySelector('#app').innerHTML = `
     </section>
   </main>
 `
-
+*/
 
 const mainSections = document.querySelectorAll(".section-container");
 const sectionObserver = new IntersectionObserver(entries => {
@@ -187,30 +188,47 @@ mainSections.forEach(el => sectionObserver.observe(el));
 
 const projectTabButtons = document.querySelectorAll("#projects .tab-button");
 const projectTabs = document.querySelectorAll("#projects .tab");
-let maxTabHeight = Math.max(...Array.from(projectTabs).map(el => el.offsetHeight));
+let maxTabHeight = Math.max(...Array.from(projectTabs).map(getElementHeight));
+console.log(maxTabHeight);
+
 projectTabs.forEach((el) => {
-    el.style.display = "none";
+    // el.style.display = "none";
     el.style.height = maxTabHeight + "px";
+    el.classList.remove("flex");
+    el.classList.add("hidden");
 });
 let currentProjectTab = 0;
+projectTabButtons[1].textContent = "Project " + (currentProjectTab + 1) + "/" + projectTabs.length;
 projectTabButtons[0].onclick = () => {
-    projectTabs[currentProjectTab].style.display = "none";
+    // projectTabs[currentProjectTab].style.display = "none";
+    projectTabs[currentProjectTab].classList.remove("flex");
+    projectTabs[currentProjectTab].classList.add("hidden");
     projectTabButtons[2].classList.remove("bg-aqua-50/5","drop-shadow-white-md", "dark:text-aqua-100");
     currentProjectTab = currentProjectTab <= 0 ? projectTabs.length - 1 : currentProjectTab - 1;
-    projectTabs[currentProjectTab].style.display = "block";
+    // projectTabs[currentProjectTab].style.display = "block";
+    projectTabs[currentProjectTab].classList.remove("hidden");
+    projectTabs[currentProjectTab].classList.add("flex");
     projectTabButtons[0].classList.add("bg-aqua-50/5","drop-shadow-white-md", "dark:text-aqua-100");
+    projectTabButtons[1].textContent = "Project " + (currentProjectTab + 1) + "/" + projectTabs.length;
 };
 projectTabButtons[2].onclick = () => {
-    projectTabs[currentProjectTab].style.display = "none";
+    // projectTabs[currentProjectTab].style.display = "none";
+    projectTabs[currentProjectTab].classList.remove("flex");
+    projectTabs[currentProjectTab].classList.add("hidden");
     projectTabButtons[0].classList.remove("bg-aqua-50/5","drop-shadow-white-md", "dark:text-aqua-100");
     currentProjectTab = currentProjectTab >= projectTabs.length - 1 ? 0 : currentProjectTab + 1;
-    projectTabs[currentProjectTab].style.display = "block";
+    // projectTabs[currentProjectTab].style.display = "block";
+    projectTabs[currentProjectTab].classList.remove("hidden");
+    projectTabs[currentProjectTab].classList.add("flex");
     projectTabButtons[2].classList.add("bg-aqua-50/5","drop-shadow-white-md", "dark:text-aqua-100");
+    projectTabButtons[1].textContent = "Project " + (currentProjectTab + 1) + "/" + projectTabs.length;
 };
-//
+
+// const projectNames = Array.from(projectTabs).map(el => el.querySelector("span").textContent);
 // for (let i = 0; i < projectTabButtons.length; i++) {
 //     projectTabs[i].style.display = "none";
 //     projectTabs[i].style.height = maxTabHeight + "px";
+//     projectTabButtons[i].textContent = projectNames[i];
 //     projectTabButtons[i].onclick = () => {
 //         for (let j = 0; j < projectTabs.length; j++) {
 //             if (j === i) {
@@ -223,26 +241,43 @@ projectTabButtons[2].onclick = () => {
 //         }
 //     }
 // }
-projectTabs[0].style.display = "block";
+// projectTabs[0].style.display = "block";
+projectTabs[0].classList.remove("hidden");
+projectTabs[0].classList.add("flex");
 projectTabButtons[0].classList.add("bg-aqua-50/5", "drop-shadow-white-md", "dark:text-aqua-100");
 
 const educationTabButtons = document.querySelectorAll("#education .tab-button");
 const educationTabs = document.querySelectorAll("#education .tab");
-maxTabHeight = Math.max(...Array.from(educationTabs).map(el => el.offsetHeight));
+maxTabHeight = Math.max(...Array.from(educationTabs).map(getElementHeight));
+console.log(maxTabHeight);
 for (let i = 0; i < educationTabButtons.length; i++) {
-    educationTabs[i].style.display = "none";
+    // educationTabs[i].style.display = "none";
     educationTabs[i].style.height = maxTabHeight + "px";
+    educationTabs[i].classList.remove("flex");
+    educationTabs[i].classList.add("hidden");
     educationTabButtons[i].onclick = () => {
         for (let j = 0; j < educationTabs.length; j++) {
             if (j === i) {
-                educationTabs[j].style.display = "block";
+                // educationTabs[j].style.display = "flex";
+                educationTabs[j].classList.remove("hidden");
+                educationTabs[j].classList.add("flex");
                 educationTabButtons[j].classList.add("bg-aqua-50/5","drop-shadow-white-md", "dark:text-aqua-100");
             } else {
-                educationTabs[j].style.display = "none";
+                // educationTabs[j].style.display = "none";
+                educationTabs[j].classList.remove("flex");
+                educationTabs[j].classList.add("hidden");
                 educationTabButtons[j].classList.remove("bg-aqua-50/5","drop-shadow-white-md", "dark:text-aqua-100");
             }
         }
     }
 }
-educationTabs[0].style.display = "block";
+// educationTabs[0].style.display = "flex";
+educationTabs[0].classList.remove("hidden");
+educationTabs[0].classList.add("flex");
 educationTabButtons[0].classList.add("bg-aqua-50/5", "drop-shadow-white-md", "dark:text-aqua-100");
+
+function getElementHeight(el) { 
+  var styles = window.getComputedStyle(el);
+  var margin = parseFloat(styles.marginTop) + parseFloat(styles.marginBottom);
+  return Math.ceil(el.offsetHeight + margin);
+}

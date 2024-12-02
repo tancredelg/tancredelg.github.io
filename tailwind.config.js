@@ -69,17 +69,22 @@ module.exports = {
         'slide-in-left': 'slide-in-left 1s cubic-bezier(0, 0.9, 0, 1.0)',
         'slide-in-down': 'slide-in-down 1s cubic-bezier(0, 0.9, 0, 1.0)'
       },
+      
       keyframes: {
         'slide-in-right': {
-          '0%': {opacity: '0', transform: 'translateX(-16vw)'},
+          '0%': {opacity: '0', transform: 'translateX(-8vw)'},
           '100%': {opacity: '100%', transform: 'translateX(0)'},
         },
         'slide-in-left': {
-          '0%': {opacity: '0', transform: 'translateX(16vw)'},
+          '0%': {opacity: '0', transform: 'translateX(8vw)'},
           '100%': {opacity: '100%', transform: 'translateX(0)'},
         },
         'slide-in-down': {
-          '0%': {opacity: '0', transform: 'translateY(-16vw)'},
+          '0%': {opacity: '0', transform: 'translateY(-8vw)'},
+          '100%': {opacity: '100%', transform: 'translateY(0)'},
+        },
+        'slide-in-up': {
+          '0%': {opacity: '0', transform: 'translateY(8vw)'},
           '100%': {opacity: '100%', transform: 'translateY(0)'},
         },
         blink: {
