@@ -186,6 +186,8 @@ mainSections.forEach(el => sectionObserver.observe(el));
 // );
 // projectCards.forEach(el => cardObserver.observe(el));
 
+const hoveredButtonClasses = ["scale-105", "dark:text-aqua-800", "dark:bg-aqua-300"];
+
 const projectTabButtons = document.querySelectorAll("#projects .tab-button");
 const projectTabs = document.querySelectorAll("#projects .tab");
 let maxTabHeight = Math.max(...Array.from(projectTabs).map(getElementHeight));
@@ -198,30 +200,30 @@ projectTabs.forEach((el) => {
     el.classList.add("hidden");
 });
 let currentProjectTab = 0;
-projectTabButtons[1].textContent = "Project " + (currentProjectTab + 1) + "/" + projectTabs.length;
+projectTabButtons[1].textContent = (currentProjectTab + 1) + "/" + projectTabs.length;
 projectTabButtons[0].onclick = () => {
     // projectTabs[currentProjectTab].style.display = "none";
     projectTabs[currentProjectTab].classList.remove("flex");
     projectTabs[currentProjectTab].classList.add("hidden");
-    projectTabButtons[2].classList.remove("bg-aqua-50/5","drop-shadow-white-md", "dark:text-aqua-100");
+    projectTabButtons[2].classList.remove(...hoveredButtonClasses);
     currentProjectTab = currentProjectTab <= 0 ? projectTabs.length - 1 : currentProjectTab - 1;
     // projectTabs[currentProjectTab].style.display = "block";
     projectTabs[currentProjectTab].classList.remove("hidden");
     projectTabs[currentProjectTab].classList.add("flex");
-    projectTabButtons[0].classList.add("bg-aqua-50/5","drop-shadow-white-md", "dark:text-aqua-100");
-    projectTabButtons[1].textContent = "Project " + (currentProjectTab + 1) + "/" + projectTabs.length;
+    projectTabButtons[0].classList.add(...hoveredButtonClasses);
+    projectTabButtons[1].textContent = (currentProjectTab + 1) + "/" + projectTabs.length;
 };
 projectTabButtons[2].onclick = () => {
     // projectTabs[currentProjectTab].style.display = "none";
     projectTabs[currentProjectTab].classList.remove("flex");
     projectTabs[currentProjectTab].classList.add("hidden");
-    projectTabButtons[0].classList.remove("bg-aqua-50/5","drop-shadow-white-md", "dark:text-aqua-100");
+    projectTabButtons[0].classList.remove(...hoveredButtonClasses);
     currentProjectTab = currentProjectTab >= projectTabs.length - 1 ? 0 : currentProjectTab + 1;
     // projectTabs[currentProjectTab].style.display = "block";
     projectTabs[currentProjectTab].classList.remove("hidden");
     projectTabs[currentProjectTab].classList.add("flex");
-    projectTabButtons[2].classList.add("bg-aqua-50/5","drop-shadow-white-md", "dark:text-aqua-100");
-    projectTabButtons[1].textContent = "Project " + (currentProjectTab + 1) + "/" + projectTabs.length;
+    projectTabButtons[2].classList.add(...hoveredButtonClasses);
+    projectTabButtons[1].textContent = (currentProjectTab + 1) + "/" + projectTabs.length;
 };
 
 // const projectNames = Array.from(projectTabs).map(el => el.querySelector("span").textContent);
@@ -233,10 +235,10 @@ projectTabButtons[2].onclick = () => {
 //         for (let j = 0; j < projectTabs.length; j++) {
 //             if (j === i) {
 //                 projectTabs[j].style.display = "block";
-//                 projectTabButtons[j].classList.add("bg-aqua-50/5","drop-shadow-white-md", "dark:text-aqua-100");
+//                 projectTabButtons[j].classList.add(...hoveredButtonClasses);
 //             } else {
 //                 projectTabs[j].style.display = "none";
-//                 projectTabButtons[j].classList.remove("bg-aqua-50/5","drop-shadow-white-md", "dark:text-aqua-100");
+//                 projectTabButtons[j].classList.remove(...hoveredButtonClasses);
 //             }
 //         }
 //     }
@@ -244,7 +246,7 @@ projectTabButtons[2].onclick = () => {
 // projectTabs[0].style.display = "block";
 projectTabs[0].classList.remove("hidden");
 projectTabs[0].classList.add("flex");
-projectTabButtons[0].classList.add("bg-aqua-50/5", "drop-shadow-white-md", "dark:text-aqua-100");
+projectTabButtons[0].classList.add(...hoveredButtonClasses);
 
 const educationTabButtons = document.querySelectorAll("#education .tab-button");
 const educationTabs = document.querySelectorAll("#education .tab");
@@ -261,12 +263,12 @@ for (let i = 0; i < educationTabButtons.length; i++) {
                 // educationTabs[j].style.display = "flex";
                 educationTabs[j].classList.remove("hidden");
                 educationTabs[j].classList.add("flex");
-                educationTabButtons[j].classList.add("bg-aqua-50/5","drop-shadow-white-md", "dark:text-aqua-100");
+                educationTabButtons[j].classList.add(...hoveredButtonClasses);
             } else {
                 // educationTabs[j].style.display = "none";
                 educationTabs[j].classList.remove("flex");
                 educationTabs[j].classList.add("hidden");
-                educationTabButtons[j].classList.remove("bg-aqua-50/5","drop-shadow-white-md", "dark:text-aqua-100");
+                educationTabButtons[j].classList.remove(...hoveredButtonClasses);
             }
         }
     }
@@ -274,7 +276,7 @@ for (let i = 0; i < educationTabButtons.length; i++) {
 // educationTabs[0].style.display = "flex";
 educationTabs[0].classList.remove("hidden");
 educationTabs[0].classList.add("flex");
-educationTabButtons[0].classList.add("bg-aqua-50/5", "drop-shadow-white-md", "dark:text-aqua-100");
+educationTabButtons[0].classList.add(...hoveredButtonClasses);
 
 function getElementHeight(el) { 
   var styles = window.getComputedStyle(el);

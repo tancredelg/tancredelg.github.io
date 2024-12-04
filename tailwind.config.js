@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     fontFamily: {
       'sans': ['ui-sans-serif', 'system-ui'],
-      'serif': ['ui-serif', 'Georgia'],
+      'serif': ['Noto Serif', 'ui-serif', 'Georgia'],
       'mono': ['ui-monospace', 'SFMono-Regular'],
       'aleo': 'Aleo',
       'noto': 'Noto Sans',
@@ -17,8 +17,18 @@ module.exports = {
       'roboto-mono': 'Roboto Mono',
       'jetbrains-mono': 'Jetbrains Mono',
       'merriweather': 'Merriweather',
+      'sarala': 'Sarala',
+      'fira-sans': 'Fira Sans',
+      'commissioner': 'Commissioner',
+      'vollkorn': 'Vollkorn',
+      'oswald': 'Oswald',
+      'neuton': 'Neuton',
+      'recursive': 'Recursive',
     },
     extend: {
+      fontSize: {
+        '2xs': ['0.675rem', '0.875rem'],
+      },
       colors: {
         'lightest': '#ecd5b4',
         'lighter': '#bb9f81',
@@ -51,11 +61,11 @@ module.exports = {
       },
       dropShadow: {
         'white-sm': [
-          '0 0 0.4rem rgba(255, 255, 255, 0.2)',
+          '0 0 0.3rem rgba(255, 255, 255, 0.2)',
         ],
         'white-md': [
-          '0 0 0.4rem rgba(255, 255, 255, 0.2)',
-          '0 0 0.8rem rgba(255, 255, 255, 0.4)',
+          '0 0 0.2rem rgba(255, 255, 255, 0.3)',
+          '0 0 1rem rgba(255, 255, 255, 0.1)',
         ],
         'white-lg': [
           '0 0 1rem rgba(255, 255, 255, 0.2)',
