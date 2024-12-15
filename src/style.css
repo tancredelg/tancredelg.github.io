@@ -114,9 +114,14 @@ display=swap');
 
   }
 
-
-  .browser-session {
-    @apply w-2/3 h-4/5 p-2.5 flex flex-col bg-slate-700 rounded-2xl;
+  /* #about {
+    @apply ;
+  } */
+  #skill-explorer {
+    @apply p-2 flex flex-col bg-slate-600 rounded-lg;
+  }
+  #browser {
+    @apply p-2.5 flex flex-col bg-slate-700 rounded-2xl;
   }
   .window-nav {
     @apply flex justify-end;
@@ -129,13 +134,13 @@ display=swap');
     @apply flex-1 flex gap-1.5 items-center;
 
     > a {  /* tab button */
-      @apply w-56 px-3 py-1.5 bg-white/5 rounded-md flex justify-between items-center;
+      @apply max-w-56 flex-1 px-3 py-1.5 bg-white/5 rounded-md flex justify-between items-center;
     }
     > a[selected] {  /* selected tab button */
       @apply bg-white/15;
     }
     >:last-child {  /* add tab button */
-      @apply w-fit px-3 py-1.5 bg-white/5 rounded-md flex justify-between items-center;
+      @apply w-fit flex-initial px-3 py-1.5 bg-white/5 rounded-md flex justify-between items-center;
     }
   }
   /* .selected-tab {
