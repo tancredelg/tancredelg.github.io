@@ -6,14 +6,12 @@
     <title>Tancrède Lamort de Gail</title>
     <link rel="stylesheet" href="src/style.css" />
   </head>
-  <body class="w-screen h-screen overflow-hidden flex flex-col">
+  <body class="w-screen h-screen overflow-hidden flex flex-col bg-stone-500">
     <!-- <header class="fixed top-4 -z-40 w-full">
     </header> -->
-    <main class="w-screen h-screen flex flex-col-reverse">
-      <section id="about" class="w-[30vw] h-[36vh] fixed top-[10vh] left-[4vw] p-4 rounded-2xl ">
-        <h2 class="text-6xl text-right text-slate-100 text-opacity-80">Tancrède <br>Lamort de Gail</h2>
-      </section> 
-      <section id="skill-explorer" class="w-[27vw] h-[39vh] fixed bottom-[13vh] left-[6vw] bg-white/5">
+    <main class="w-screen h-screen flex flex-col-reverse bg-black/95">
+      
+      <!-- <section id="skill-explorer" class="w-[27vw] h-[39vh] fixed bottom-[13vh] left-[6vw] bg-white/5">
         <div class="window-nav">
           <span class="mr-auto">~/skills/</span>
           <button>&minus;</button>
@@ -29,28 +27,57 @@
             skills go in here
           </div>
         </div>
-      </section>
-      <section id="browser" class="w-[62vw] h-[84vh] fixed top-[5vh] right-[3vw]">
-        <nav class="window-nav">
-          <nav class="tabs-nav">
-            <a href="#home" selected>Home<div class="h-3.5 aspect-square rounded-xl bg-black/25"></div></a>
-            <a href="#projects">Projects<div class="h-3.5 aspect-square rounded-xl bg-black/25"></div></a>
-            <a href="#education">Education<div class="h-3.5 aspect-square rounded-xl bg-black/25"></div></a>
-            <a href="">&plus;</a>
-          </nav>
-          <button>&minus;</button>
-          <button>&times;</button>
-        </nav>
-        <div class="search-bar">~/about/projects</div>
-        <div class="page">
-          <div class="p-20 flex flex-col gap-10">
-            <div class="h-[30vh] bg-white/5 flex justify-center items-center">details go here p1</div>
-            <div class="h-[30vh] bg-white/5 flex justify-center items-center">details go here p2</div>
-            <div class="h-[30vh] bg-white/5 flex justify-center items-center">details go here p3</div>
+      </section> -->
+      <!-- <div class="absolute bottom-[15vh] h-[calc(25vw+25vh)] left-[calc(6vw+3vh)] w-[calc(45vw+25vh)]"> -->
+      <div class="absolute top-[calc(50vh-540px)] bottom-[calc(50vh-540px)] inset-x-[calc(50vw-960px)]">
+        <div id="window">
+          <div></div>
+        </div>
+        <section id="about">
+          <h2 class="text-6xl text-right text-slate-100 text-opacity-80">Tancrède Lamort de Gail</h2>
+        </section> 
+        <div id="desk"></div>
+        <div class="laptop-top">
+          <div class="laptop-screen">
+            <div id="browser">
+              <nav class="window-nav">
+                <div class="window-buttons">
+                  <button class="bg-red-500 hover:bg-black/15">&times;</button>
+                  <button class="bg-amber-500 hover:bg-black/15">&minus;</button>
+                  <button class="bg-lime-500 hover:bg-black/15">&plus;</button>
+                </div>
+                <div class="search-bar">~/about/projects</div>
+                <div class="flex-1"></div>
+              </nav>
+              <nav class="tabs-nav">
+                <a href="#home" selected>Home</a>
+                <a href="#projects">Projects</a>
+                <a href="#education">Education</a>
+                <a href="#Experience">Experience</a>
+              </nav>
+              <div class="page-container">
+                <div class="page">
+                  <div class="p-20 flex flex-col gap-10">
+                    <div class="h-[30vh] bg-white/5 flex justify-center items-center">details go here p1</div>
+                    <div class="h-[30vh] bg-white/5 flex justify-center items-center">details go here p2</div>
+                    <div class="h-[30vh] bg-white/5 flex justify-center items-center">details go here p3</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="taskbar">
+              TASKBAR
+            </div>
           </div>
         </div>
-      </section>
-      <section id="contact-bar" class="w-fit h-[6vh] mb-[1vh] mx-auto p-2 gap-2 flex justify-start items-stretch bg-white/15 rounded-xl">
+        <div class="laptop-base">
+          <div class="keyboard">
+            <img src="https://i.ibb.co/sVWfnWX/keyboard-black.png">
+          </div>
+          <div class="touchpad"></div>
+        </div>
+      </div>
+      <!-- <section id="contact-bar" class="w-fit h-[6vh] mb-[1vh] mx-auto p-2 gap-2 flex justify-start items-stretch bg-white/15 rounded-xl">
         <a class="contact-button" href="mailto: tancredelamortdegail@gmail.com">
           <svg class="size-5 sm:size-6" viewBox="2 2 20 20">
             <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5l-8-5V6l8 5l8-5v2z"></path>
@@ -69,7 +96,7 @@
           </svg>
           /in/tancredelamortdegail
         </a>
-      </section>
+      </section> -->
     </main>
     <script type="module" src="src/main.js"></script>
   </body>
