@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tancrède Lamort de Gail</title>
-    <script type="module" crossorigin src="/assets/index-UDJotrPq.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CMrIlmdT.css">
+    <script type="module" crossorigin src="/assets/index-BGK6UmgQ.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BjQclwKA.css">
   </head>
   <body>
-    <header class="fixed top-0 z-40 w-screen from-aqua-950/10">
+    <header class="fixed top-0 z-40 w-screen">
       <!-- <div class="fixed top-0 -z-10 w-full h-10 bg-white/10 rounded-2xl "></div> -->
-      <div class="w-responsive mt-1.5 sm:mt-3 xl:mt-4">
-        <nav class="p-1 sm:p-1.5 sm:py-2 flex sm:gap-0.5 xl:gap-1 justify-center items-center bg-aqua-950/100 rounded-xl sm:rounded-2xl">
+      <div class="w-responsive mt-1.5 sm:mt-2.5 xl:mt-3">
+        <nav class="p-[5px_4px] flex gap-0.5 justify-center items-center bg-aqua-950/100 rounded-[10px] sm:rounded-xl xl:rounded-2xl">
           <a class="nav-button" href="#home">Home</a>
           <a class="nav-button" href="#projects">Projects</a>
           <a class="nav-button" href="#experience">Experience</a>
@@ -115,7 +115,7 @@
               </div>
               <div class="project-content">
                 <div class="image-carousel">
-                  <div>
+                  <div class="images">
                     <img src="/assets/HH%20-%20landing-OLdlx8uc.png" alt="">
                     <img src="/assets/HH%20-%20start%20recording-DpzEnErQ.png" alt="">
                     <img src="/assets/HH%20-%20stop%20recording-DblGlB2L.png" alt="">
@@ -127,29 +127,34 @@
                     <button>&gt;</button>
                   </div>
                 </div>
-                <p>
-                  At McHacks 12, I worked on a team of 4 over 24h to create a web app that helps job-seekers practice for interviews.
-                  The app gives you a random question from one of three categories, 
-                  and lets users record themselves responding to the question, 
-                  during which a css-animated pair of eyes watch you to simulate the feeling of being watched during an interview.
-                  Once the user stops recording, the response is submitted to OpenAI's Whisper API for transcription of the audio into text,
-                  and a summary of the response is displayed to the user, providing key metrics like the size of the response, 
-                  the speed at which they spoke, and the amount of eye contact made with the webcam, and, most importantly, 
-                  a paragraph generated from OpenAI's GPT-4 API giving feedback on the language used,
-                  with a focus on themes like professionallism, conciseness, and clarity. 
-                  We also chose to calculate word density, and highlight the overly 'dense' words in the response, 
-                  as a means of pointing out potentially excessive repetition (e.g. 'like ... like ... like'). This feature ended up looking pretty cool,
-                  however we would have liked to include a stopword list to filter out words that are ok to repeat, 
-                  such as 'the' or 'and', in order to avoid highlighting them.
-                </p>
-                <p>
-                  The app has a simple Flask backend that sends API requests for the speech-to-text conversion and then feedback generation,
-                  handles the inference of the vision model that tracks the user's eyes, and calculates some relevant metrics.
-                  The data is then sent back to the frontend on the summary page.
-                  The frontend is simple HTML & JavaScript (the latter mainly to record audio), and we opted for TailwindCSS for styling the UI, 
-                  which helped in designing a UI.
-                </p>
-                <p class="italic"><b>NOTE:</b> The 4th image shows a Words/min of 1.84 - this is a mistake that has been fixed, it should have been multiplied by 60 to actually show words/min, instead of showing words/sec.</p>
+                <div class="project-description">
+                  <p>
+                    At McHacks 12, I worked in a team of 4 over 24h to create a web app that helps job-seekers practice for interviews.
+                    The app gives you a random question from one of three categories, 
+                    and lets users record themselves responding to the question, 
+                    during which a css-animated pair of eyes watch you to simulate the feeling of being watched during an interview.
+                    Once the user stops recording, the response is submitted to OpenAI's Whisper API for transcription of the audio into text,
+                    and a summary of the response is displayed to the user, providing key metrics like the size of the response, 
+                    the speed at which they spoke, and the amount of eye contact made with the webcam, and, most importantly, 
+                    a paragraph generated from OpenAI's GPT-4 API giving feedback on the language used,
+                    with a focus on themes like professionallism, conciseness, and clarity. 
+                    We also chose to calculate word density, and highlight the overly 'dense' words in the response, 
+                    as a means of pointing out potentially excessive repetition (e.g. 'like ... like ... like'). This feature ended up looking pretty cool,
+                    however we would have liked to include a stopword list to filter out words that are ok to repeat, 
+                    such as 'the' or 'and', in order to avoid highlighting them.
+                  </p>
+                  <p>
+                    The app has a simple Flask backend that sends API requests for the speech-to-text conversion and then feedback generation,
+                    handles the inference of the vision model that tracks the user's eyes, and calculates some relevant metrics.
+                    The data is then sent back to the frontend on the summary page.
+                    The frontend is simple HTML & JavaScript (the latter mainly to record audio), and we opted for TailwindCSS for styling the UI, 
+                    which helped in designing a UI.
+                  </p>
+                  <p class="italic">
+                    <b>NOTE:</b> The 4th image shows a Words/min of 1.84 - this is a mistake that has been fixed, it should have been 
+                    multiplied by 60 to actually show words/min, instead of showing words/sec.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -178,7 +183,7 @@
               </div>
               <div class="project-content">
                 <div class="image-carousel">
-                  <div>
+                  <div class="images">
                     <img src="/assets/Cartographe%20-%20France%20hovered%20(cities%20hidden)-CZxRnTxK.png" alt="">
                     <img src="/assets/Cartographe%20-%20Singapore%20hovered%20(cities%20rank%200-3)-BhwRnRRF.png" alt="">
                     <img src="/assets/Cartographe%20-%20Panama%20City%20hovered%20(all%20cities)-9p9US8ZS.png" alt="">
@@ -189,21 +194,23 @@
                     <h5>1/?</h5>
                     <button>&gt;</button>
                   </div>
-                </div>    
-                <p>
-                  Although more on the backburner, I'm working on a geography game for people to create and share quizzes of the world's countries, cities, and other geographical features. 
-                  The game leverages precise, public GIS data to generate mesh-based objects in Unity, providing an accurate and interactive representation of the world.
-                </p>
-                <p>
-                  I started the project with creating a multi-process mesh-generation pipeline using a Python implementation of Triangle, 
-                  distributed via Python's multiprocessing library to process Natural Earth's hundreds of highly precise country and territory boundaries. <i>See image 4 for the mesh generated for Greece.</i>
-                  With the mesh data generated, I can then create a very accurate and interactive map of the world in Unity.
-                </p>
-                <p>
-                  The aim of the game is for users to create their own quizzes by selecting specific countries, cities, etc, and sharing the quiz with the public, 
-                  allowing for a collaborative and educational experience. 
-                  The game aims to make learning geography fun and engaging by combining accurate data with interactive gameplay.
-                </p>
+                </div> 
+                <div class="project-description">  
+                  <p>
+                    Although more on the backburner, I'm working on a geography game for people to create and share quizzes of the world's countries, cities, and other geographical features. 
+                    The game leverages precise, public GIS data to generate mesh-based objects in Unity, providing an accurate and interactive representation of the world.
+                  </p>
+                  <p>
+                    I started the project with creating a multi-process mesh-generation pipeline using a Python implementation of Triangle, 
+                    distributed via Python's multiprocessing library to process Natural Earth's hundreds of highly precise country and territory boundaries. <i>See image 4 for the mesh generated for Greece.</i>
+                    With the mesh data generated, I can then create a very accurate and interactive map of the world in Unity.
+                  </p>
+                  <p>
+                    The aim of the game is for users to create their own quizzes by selecting specific countries, cities, etc, and sharing the quiz with the public, 
+                    allowing for a collaborative and educational experience. 
+                    The game aims to make learning geography fun and engaging by combining accurate data with interactive gameplay.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -243,7 +250,7 @@
               </div>
               <div class="project-content">
                 <div class="image-carousel">
-                  <div>
+                  <div class="images">
                     <img src="/assets/MDP%20-%20term%20select-CwWtOKZ_.png" alt="">
                     <img src="/assets/MDP%20-%20course%20add-C69CPl6B.png" alt="">
                     <img src="/assets/MDP%20-%20course%20remove-taTcwaTA.png" alt="">
@@ -255,16 +262,18 @@
                     <button>&gt;</button>
                   </div>
                 </div>  
-                <p>
-                  This project is a degree planner for McGill students. It's a single-page web app that helps students plan which courses to take when and track their progress towards completing their degree.
-                </p>
-                <p>
-                  The project is built with Flask and SQLite on the backend, using htmx to dynamically update the frontend, which itself is built using plain old HTML, CSS and JavaScript (though I might bring in TailwindCSS for the styling, like I did for this website).
-                  I have it hosted on Vercel and it's currently open to the public for beta testing, so feel free to check it out and let me know what you think!
-                </p>
-                <p>
-                  The SQLite backend is a simple database storing courses and course sections, which I built by scraping course data from the McGill course website using Python's beautifulsoup4 library.
-                </p>
+                <div class="project-description">
+                  <p>
+                    This project is a degree planner for McGill students. It's a single-page web app that helps students plan which courses to take when and track their progress towards completing their degree.
+                  </p>
+                  <p>
+                    The project is built with Flask and SQLite on the backend, using htmx to dynamically update the frontend, which itself is built using plain old HTML, CSS and JavaScript (though I might bring in TailwindCSS for the styling, like I did for this website).
+                    I have it hosted on Vercel and it's currently open to the public for beta testing, so feel free to check it out and let me know what you think!
+                  </p>
+                  <p>
+                    The SQLite backend is a simple database storing courses and course sections, which I built by scraping course data from the McGill course website using Python's beautifulsoup4 library.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -290,7 +299,7 @@
               </div>
               <div class="project-content">
                 <div class="image-carousel">
-                  <div>
+                  <div class="images">
                     <img src="/assets/DCP%20-%20full%20view%201-Bqb8YaKK.png" alt="">
                     <img src="/assets/DCP%20-%20manager%20logs-CxJJhgfw.png" alt="">
                     <img src="/assets/DCP%20-%20worker%20logs%201-3_2OVcJ6.png" alt="">
@@ -302,27 +311,29 @@
                     <button>&gt;</button>
                   </div>
                 </div>  
-                <p>
-                  For the 3rd and final assignment of McGill's Distributed Systems grad course (COMP 512), 
-                  we had to work in teams of 2 to build a distributed computing platform with Apache Zookeeper. 
-                  The objective was to have a 'manager' server that would receive tasks from clients and distribute them to a pool of 'worker' servers,
-                  which would then execute the tasks and return the results to the manager and then to the client.                  
-                </p>
-                <p>
-                  There was a little bit of flexibility in how we could implement the system, which allowed us to get creative with the design,
-                  and put more thought into the architecture of the system, which was a great learning experience.
-                </p>
-                <p>
-                  In our implementation, the manager had 2 threads: one to receive tasks from clients and one to distribute tasks to workers - 
-                  a clean and effective way to achieve a non-blocking manager as required by the assignment. For the distribution of tasks, 
-                  we developed an availability-based load balancing algorithm that would assign tasks to the next available worker in a round-robin fashion.
-                </p> 
-                <p>
-                  By demo time, we had a fully functional system that could handle plenty of clients and workers, and passing all the tests. 
-                  I learned so much about distributed systems in this course and its assignments, ending really nicely with some case studies 
-                  on the Google File System & Hadoop Distributed File System, the MapReduce programming model, and Spark. 
-                  I'm glad I took this course, and recommend it to any McGill students looking for a COMP 500 course.
-                </p>
+                <div class="project-description">
+                  <p>
+                    For the 3rd and final assignment of McGill's Distributed Systems grad course (COMP 512), 
+                    we had to work in teams of 2 to build a distributed computing platform with Apache Zookeeper. 
+                    The objective was to have a 'manager' server that would receive tasks from clients and distribute them to a pool of 'worker' servers,
+                    which would then execute the tasks and return the results to the manager and then to the client.                  
+                  </p>
+                  <p>
+                    There was a little bit of flexibility in how we could implement the system, which allowed us to get creative with the design,
+                    and put more thought into the architecture of the system, which was a great learning experience.
+                  </p>
+                  <p>
+                    In our implementation, the manager had 2 threads: one to receive tasks from clients and one to distribute tasks to workers - 
+                    a clean and effective way to achieve a non-blocking manager as required by the assignment. For the distribution of tasks, 
+                    we developed an availability-based load balancing algorithm that would assign tasks to the next available worker in a round-robin fashion.
+                  </p> 
+                  <p>
+                    By demo time, we had a fully functional system that could handle plenty of clients and workers, and passing all the tests. 
+                    I learned so much about distributed systems in this course and its assignments, ending really nicely with some case studies 
+                    on the Google File System & Hadoop Distributed File System, the MapReduce programming model, and Spark. 
+                    I'm glad I took this course, and recommend it to any McGill students looking for a COMP 500 course.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -345,7 +356,7 @@
               </div>
               <div class="project-content">
                 <div class="image-carousel">
-                  <div>
+                  <div class="images">
                     <img src="/assets/EFS%20-%20screenshot-BQLyngX7.png" alt="">
                     <video src="/assets/EFS%20-%20sink%20source%20compressed-g4wUicWi.mp4" loop muted playsinline>
                       Your browser does not support the video tag.
@@ -357,19 +368,73 @@
                     <button>&gt;</button>
                   </div>
                 </div>  
-                <p>
-                  My favourite assignment from McGill's Computer Animation course (COMP 559) was this 2D fluid simulation,
-                  featuring a grid-based Eulerian fluid solver based on Jos Stam's 2003 paper, Real-Time Fluid Dynamics for Games.
-                </p>
-                <p>
-                  Admittedly, the simulation was a pain to implement, with non-trivial advection, diffusion, and projection steps 
-                  starring Gauss-Seidel solvers, along with implementing boundary conditions. 
-                  At least the rendering was already set up for us, as this was a course on computer animation, not computer graphics.
-                </p>
-                <p>
-                  After finally achieving a working simulation, vectorizing the code via numpy made the whole thing run way faster,
-                  and the results were pretty satisfying.
-                </p>
+                <div class="project-description">
+                  <p>
+                    My favourite assignment from McGill's Computer Animation course (COMP 559) was this 2D fluid simulation,
+                    featuring a grid-based Eulerian fluid solver based on Jos Stam's 2003 paper, Real-Time Fluid Dynamics for Games.
+                  </p>
+                  <p>
+                    Admittedly, the simulation was a pain to implement, with non-trivial advection, diffusion, and projection steps 
+                    starring Gauss-Seidel solvers, along with implementing boundary conditions. 
+                    At least the rendering was already set up for us, as this was a course on computer animation, not computer graphics.
+                  </p>
+                  <p>
+                    After finally achieving a working simulation, vectorizing the code via numpy made the whole thing run way faster,
+                    and the results were pretty satisfying.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-entry">
+            <div class="timeline-date">Aug 22-</div>
+            <div class="timeline-line"></div>
+            <div class="timeline-item">
+              <div class="project-header">
+                <h4>
+                  Mars Marine
+                </h4>
+                <div class="logo-group">
+                  <a href="https://www.unrealengine.com/" title="Unreal Engine" target="_blank">
+                    <img class="h-full" src="data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='utf-8'?%3e%3c!--%20Generator:%20Adobe%20Illustrator%2027.8.1,%20SVG%20Export%20Plug-In%20.%20SVG%20Version:%206.00%20Build%200)%20--%3e%3csvg%20version='1.1'%20id='UE-Icon-2023-White'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%20x='0px'%20y='0px'%20viewBox='0%200%201280%201280'%20style='enable-background:new%200%200%201280%201280;'%20xml:space='preserve'%3e%3cstyle%20type='text/css'%3e%20.st0{fill-rule:evenodd;clip-rule:evenodd;fill:%23FFFFFF;}%20%3c/style%3e%3cg%3e%3cg%3e%3cg%3e%3cpath%20class='st0'%20d='M640,1280c353.46,0,640-286.54,640-640S993.46,0,640,0S0,286.54,0,640S286.54,1280,640,1280z%20M803.7,995.81%20c156.5-73.92,205.56-210.43,216.6-263.61c-57.22,58.6-120.53,118-163.11,76.88c0,0-2.33-219.45-2.33-309.43%20c0-121,114.75-211.18,114.75-211.18c-63.11,11.24-138.89,33.71-219.33,112.65c-7.26,7.2-14.14,14.76-20.62,22.67%20c-34.47-26.39-79.14-18.48-79.14-18.48c24.14,13.26,48.23,51.88,48.23,83.85v314.26c0,0-52.63,46.3-93.19,46.3%20c-9.14,0.07-18.17-2.05-26.33-6.18c-8.16-4.13-15.21-10.15-20.56-17.56c-3.21-4.19-5.87-8.78-7.91-13.65V424.07%20c-11.99,9.89-52.51,18.04-52.51-49.22c0-41.79,30.11-91.6,83.73-122.15c-73.63,11.23-142.59,43.04-198.92,91.76%20c-42.8,36.98-77.03,82.85-100.31,134.4c-23.28,51.55-35.06,107.55-34.51,164.12c0,0,39.21-122.51,88.32-133.83%20c7.15-1.88,14.65-2.07,21.89-0.54c7.24,1.53,14.02,4.72,19.81,9.34c5.79,4.61,10.41,10.51,13.51,17.23%20c3.1,6.72,4.59,14.07,4.34,21.46V844.3c0,29.16-18.8,35.53-36.17,35.22c-11.77-0.83-23.4-3.02-34.66-6.53%20c35.86,48.53,82.46,88.12,136.15,115.66c53.69,27.54,113.03,42.29,173.37,43.1l106.05-106.6L803.7,995.81z'/%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/svg%3e">
+                  </a>
+                </div>
+              </div>
+              <div class="project-content">
+                <div class="image-carousel">
+                  <div class="images">
+                    <img src="/assets/MM%20-%20health%20pack-Rap9zPgD.png" alt="">
+                    <img src="/assets/MM%20-%20return%20to%20play%20area-RxtoFvlh.png" alt="">
+                    <img src="/assets/MM%20-%20dead-CSpi70PV.png" alt="">
+                  </div>
+                  <div>
+                    <button>&lt;</button>
+                    <h5>1/?</h5>
+                    <button>&gt;</button>
+                  </div>
+                </div>  
+                <div class="project-description">
+                  <p>
+                    In efforts to keep my game development skills sharp and up-to-date, I decided to hop on the 
+                    Unreal Engine 5 hype train not long after its release, making a few small games to learn the core
+                    parts of the engine, like the level editor, blueprints, animation system, and UI system.
+                  </p>
+                  <p>
+                    One of these games was Mars Marine, a top down, wave-based shooter where the player has to survive
+                    waves of alien enemies trying to kill them. The player can run around, shoot the aliens and 
+                    collect pickups (e.g. health packs), all with the goal of surviving as many waves as possible. There's
+                    also UI in the form of a HUD, displaying the player's health, number of kills, and a wave counter.
+                  </p>
+                  <p>
+                    Enemies (aliens) spawn in larger and larger numbers each wave, and will chase the player using
+                    built-in AI blueprint nodes and a NavMesh. The player is also forced to stay within a bounded play area
+                    and fight the enemies.
+                  </p>
+                  <p>
+                    Learning UE5 has definitely been intense compared to Unity, but exploring such a powerful engine is definitely 
+                    worth it, giving me a better sense of the game development landscape and the tools available to developers in the industry.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -395,7 +460,7 @@
               </div>
               <div class="project-content">
                 <div class="image-carousel">
-                  <div>
+                  <div class="images">
                     <img src="/assets/STS%20-%20mid%20game%20fighting%20enemies%20with%20sword-CX_9jTUU.png" alt="">
                     <img src="/assets/STS%20-%20in%20game%20entering%20portal%20room-DT3DSMq5.png" alt="">
                     <img src="/assets/STS%20-%20in%20game%20shooting%20arrow-C5wNTK3S.png" alt="">
@@ -415,24 +480,26 @@
                     <button>&gt;</button>
                   </div>
                 </div>
-                <p>
-                  A Unity game I developped back during my A-Levels, Storm the Stronghold is 2D top-down rogue-like, 
-                  where the objective is to clear as many strongholds as possible before dying.
-                </p>         
-                <p>
-                  I hand-crafted a procedural level generation system that creates strongholds with forever-increasing 
-                  numbers of rooms, enemies, and loot, each time uniquely layed out. 
-                  Getting out of a stronghold requires finding the exit portal, which is designed to be in one of the 
-                  furthest rooms from the one the player starts in.
-                  Rooms contain loot in the form of weapons, guarded by enemies of different types (melee & ranged), 
-                  who will chase the player in swarms using my own implementation of the A* pathfinding algorithm. 
-                </p>
-                <p>
-                  The game also features a skill tree and leveling system, where players can spend points earned 
-                  by clearing strongholds to unlock new abilities and improve their stats. 
-                  It also has a local save system that allows players save and load games and have game settings persist between sessions,
-                  serializing the game state and settings to json files.
-                </p>
+                <div class="project-description">
+                  <p>
+                    A Unity game I developped back during my A-Levels, Storm the Stronghold is 2D top-down rogue-like, 
+                    where the objective is to clear as many strongholds as possible before dying.
+                  </p>         
+                  <p>
+                    I hand-crafted a procedural level generation system that creates strongholds with forever-increasing 
+                    numbers of rooms, enemies, and loot, each time uniquely layed out. 
+                    Getting out of a stronghold requires finding the exit portal, which is designed to be in one of the 
+                    furthest rooms from the one the player starts in.
+                    Rooms contain loot in the form of weapons, guarded by enemies of different types (melee & ranged), 
+                    who will chase the player in swarms using my own implementation of the A* pathfinding algorithm. 
+                  </p>
+                  <p>
+                    The game also features a skill tree and leveling system, where players can spend points earned 
+                    by clearing strongholds to unlock new abilities and improve their stats. 
+                    It also has a local save system that allows players save and load games and have game settings persist between sessions,
+                    serializing the game state and settings to json files.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -452,7 +519,7 @@
               </div>
               <div class="project-content">
                 <div class="image-carousel">
-                  <div>
+                  <div class="images">
                     <img src="/assets/DE%20-%20menu%20screen-DJj28HB_.png" alt="">
                     <img src="/assets/DE%20-%20jump%20shot-BMYxkzw4.png" alt="">
                     <img src="/assets/DE%20-%20rising%20water-BC6zQllA.png" alt="">
@@ -466,17 +533,19 @@
                     <button>&gt;</button>
                   </div>
                 </div>
-                <p>
-                  Dungeon Escape is a platformer I made in Unity where the player has to complete a bunch 
-                  of levels by reaching the exit before the water rises and drowns them. On the way, the player has to avoid
-                  falling into spike pits or getting killed by the enemies that roam the dungeon. These enemies can be killed
-                  with a reloadable semi-automatic rifle equipped with an aiming laser. Also, the player has a second objective
-                  in collecting the coins throughout the level, which can be reached with jumps, double jumps and ladders.
-                </p>
-                <p>
-                  Making this game taught me lots about grids and tilemaps, collision types and collision layers, 
-                  animations and animation controllers/graphs, and some basic enemy behaviours.
-                </p>
+                <div class="project-description">
+                  <p>
+                    Dungeon Escape is a platformer I made in Unity where the player has to complete a bunch 
+                    of levels by reaching the exit before the water rises and drowns them. On the way, the player has to avoid
+                    falling into spike pits or getting killed by the enemies that roam the dungeon. These enemies can be killed
+                    with a reloadable semi-automatic rifle equipped with an aiming laser. Also, the player has a second objective
+                    in collecting the coins throughout the level, which can be reached with jumps, double jumps and ladders.
+                  </p>
+                  <p>
+                    Making this game taught me lots about grids and tilemaps, collision types and collision layers, 
+                    animations and animation controllers/graphs, and some basic enemy behaviours.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -496,7 +565,7 @@
               </div>
               <div class="project-content">
                 <div class="image-carousel">
-                  <div>
+                  <div class="images">
                     <img src="/assets/GG%20-%20mid%20level-BMLzphqk.png" alt="">
                     <img src="/assets/GG%20-%20level%20complete-trPowNaN.png" alt="">
                     <img src="/assets/GG%20-%20game%20over-BYz2UMiu.png" alt="">
@@ -507,18 +576,20 @@
                     <button>&gt;</button>
                   </div>
                 </div>
-                <p>
-                  Glitch Garden is a quick clone of Plants vs Zombies, with the same lane-based tower defense structure. 
-                  There is a basic economy system via stars (suns in PvZ) that are generated by star-making plants, 
-                  and spent on planting new plants to build up your defense. This defense includes two different projectile shooters
-                  as well as a gravestone acting as a shield/wall against the enemies. The enemies are spawned from the right side of the screen, 
-                  one type which moves slowly but has a lot of health, and another type which moves quickly but has less health, 
-                  and can jump over gravestones.
-                </p>
-                <p>
-                  This was a great project for learning about all sorts of things in the Unity game engine during COVID-19 lockdowns, 
-                  including cross-scene persistence, animations, and the Unity UI system.
-                </p>
+                <div class="project-description">
+                  <p>
+                    Glitch Garden is a quick clone of Plants vs Zombies, with the same lane-based tower defense structure. 
+                    There is a basic economy system via stars (suns in PvZ) that are generated by star-making plants, 
+                    and spent on planting new plants to build up your defense. This defense includes two different projectile shooters
+                    as well as a gravestone acting as a shield/wall against the enemies. The enemies are spawned from the right side of the screen, 
+                    one type which moves slowly but has a lot of health, and another type which moves quickly but has less health, 
+                    and can jump over gravestones.
+                  </p>
+                  <p>
+                    This was a great project for learning about all sorts of things in the Unity game engine during COVID-19 lockdowns, 
+                    including cross-scene persistence, animations, and the Unity UI system.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
