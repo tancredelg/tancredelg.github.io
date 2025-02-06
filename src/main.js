@@ -66,7 +66,7 @@ let currentImages = new Array(imageCarousels.length).fill(0);
 imageCarousels.forEach((carousel, i) => {
   // console.log(carousel, i);
   
-  const images = carousel.querySelectorAll("&> div:first-child > *");
+  const images = carousel.querySelectorAll(".images > *");
   const buttons = carousel.querySelectorAll("button");
   const imageNumberText = carousel.querySelector("h5");
   

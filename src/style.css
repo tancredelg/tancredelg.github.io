@@ -155,16 +155,16 @@ layer(base);
 }
 
 @utility w-responsive {
-  @apply mx-auto w-[100vw] sm:w-[80vw] xl:w-[68vw] px-[1vw] sm:px-[2vw] overflow-clip;
+  @apply mx-auto w-[100vw] sm:w-[80vw] xl:w-[68vw] px-[1vw] sm:px-[2vw] max-w-[1200px] overflow-clip;
 }
 
 @utility section-container {
-  @apply w-responsive min-h-[100dvh] pt-[8dvh] flex flex-col justify-center 
+  @apply w-responsive min-h-[100dvh] pt-[8dvh] flex flex-col justify-center items-center
     transition-opacity ease-in-out duration-1000;
 }
 
 @utility section-header {
-  @apply p-3 py-2 sm:p-5 sm:py-4 xl:p-6 xl:py-5
+  @apply w-full p-3 py-2 sm:p-5 sm:py-4 xl:p-6 xl:py-5
     /* mb-5 sm:mb-8 xl:mb-10  */
     flex flex-wrap gap-1 sm:gap-y-3 xl:gap-y-5 justify-start items-center
     rounded-lg sm:rounded-xl xl:rounded-2xl bg-aqua-950;
@@ -187,11 +187,8 @@ layer(base);
     text-aqua-200 fill-aqua-200 bg-aqua-950;
   &:hover, &[active="true"] {
     @apply
-    scale-95
+    scale-97
     text-aqua-800 fill-aqua-800 bg-aqua-300;
-  }
-  &:active {
-    @apply scale-90;
   }
 }
 
@@ -201,7 +198,7 @@ layer(base);
 }
 
 @utility nav-button {
-  @apply button sm:w-full
+  @apply button sm:w-full font-medium
     flex-1
     transition-all ease-out 
     text-sm sm:text-lg xl:text-xl;
@@ -213,38 +210,43 @@ layer(base);
 }
 
 @utility timeline-entry {
-  @apply w-full min-h-0
+  @apply w-full max-w-[1200px] min-h-0
     flex;
   &:hover > .timeline-item {
-    @apply scale-101 sm:scale-102 bg-white/5 border-aqua-100/30;
+    @apply scale-100 bg-white/5 border-aqua-100/35;
+  }
+  &:hover h4 {
+    @apply drop-shadow-white-sm;
   }
   &:hover > .timeline-date {
     @apply text-aqua-100/75 drop-shadow-white-sm;
   }
   &:hover > .timeline-date > div {
-    @apply bg-aqua-100/75 h-3/10;
+    @apply bg-aqua-100/75 h-[max(30%,70px)];
   }
 }
 
 @utility timeline-date {
-  @apply flex-initial mt-6 mb-12 sm:my-12
+  @apply flex-initial my-7 sm:my-12
     font-jetbrains-mono
     leading-[150%] uppercase text-[85%] tracking-tighter sm:tracking-normal font-medium sm:font-bold
     text-aqua-100/35 
-    origin-right transition-all duration-200 ease-out;
+    origin-right transition-all duration-250 ease-out;
 
   > div {
     @apply h-8 mx-auto w-[1px] sm:w-0.5
       bg-aqua-100/0
-      origin-right transition-all duration-400 sm:duration-350 ease-[cubic-bezier(.3,1.3,.5,1)] sm:ease-[cubic-bezier(.3,1.5,.6,1)] xl:ease-[cubic-bezier(.3,1.6,.7,1)];
+      origin-right transition-all duration-400 ease-[cubic-bezier(.3,1.4,.4,1)] sm:ease-[cubic-bezier(.3,1.5,.5,1)] xl:ease-[cubic-bezier(.3,1.6,.6,1)];
   }
 }
 
 @utility timeline-item {
-  @apply flex-1 my-3 sm:my-6 px-3.5 py-2.5 sm:px-5 sm:py-3.5
+  @apply flex-1 my-2 sm:my-4 px-3 py-2 sm:px-5.5 sm:py-4 xl:px-6.5 xl:py-5
     flex flex-col gap-2 sm:gap-3 xl:gap-4 
-    border sm:border-2 border-transparent rounded-xl sm:rounded-2xl
-    origin-left transition-all duration-200 ease-out;
+    scale-97
+    border sm:border-2 border-aqua-100/15 sm:border-aqua-100/11 
+    rounded-xl sm:rounded-2xl xl:rounded-3xl
+    origin-left transition-all duration-250 ease-out;
 }
 
 @utility timeline-line {
@@ -255,74 +257,59 @@ layer(base);
   @apply ml-2.5 -mr-0.5 sm:ml-4 xl:ml-5 w-[3px] sm:w-[4px] xl:w-[5px] bg-aqua-200/35;
 }
 
-@utility project-header {
-  @apply flex flex-wrap gap-x-4 gap-y-1 sm:gap-6 sm:gap-y-1.5 xl:gap-7 xl:gap-y-2 justify-between items-center;
-}
-
 @utility image-carousel {
-  @apply w-full mb-2;
+  @apply w-full sm:w-3/4 mx-auto flex flex-col gap-2;
 
   &> :not(div:first-child) {
-    @apply w-full sm:w-1/2 xl:w-1/3 mx-auto mt-2
-    flex gap-2 justify-center;
+    @apply w-full flex gap-3 justify-center;
     &> button {
-      @apply button flex-1;
+      @apply button flex-1 max-w-[160px];
     }
     &> h5 {
       @apply mx-2 my-auto
     }
   }
-  &> div:first-child {
-    @apply w-full max-w-[900px] mx-auto aspect-video;
-    
-    &> * { 
-      @apply rounded-lg sm:rounded-xl;
-    }
+}
+
+@utility images {
+  @apply  mx-auto;
+
+  &> * { 
+    @apply rounded-lg sm:rounded-xl;
   }
 }
 
 @utility underline-on-hover {
   @apply w-0 h-0.5 -mt-0.5
     bg-aqua-100/80 
-    transition-all duration-200 ease-out;
+    transition-all duration-250 ease-out;
   *:hover > & {
     @apply w-full ml-auto;
   }
 }
 
+@utility project-header {
+  @apply flex flex-wrap gap-x-4 gap-y-1 sm:gap-6 sm:gap-y-1.5 xl:gap-7 xl:gap-y-2 justify-between items-center;
+}
+
 @utility project-content {
-  @apply flex flex-col gap-2 overflow-auto 
-    rounded-lg;
+  @apply flex flex-col gap-1.5 sm:gap-2.5;
+}
+
+@utility project-description {
+  @apply max-h-[40dvh] sm:max-h-[35dvh] xl:max-h-[30dvh] flex flex-col gap-1.5 sm:gap-2.5 overflow-auto;
 }
 
 @utility logo-group {
-  @apply w-fit p-2 sm:p-2.5 
+  @apply w-fit p-2 sm:p-2.5 sm:px-3
     flex flex-wrap gap-2 sm:gap-3 xl:gap-4 items-center 
-    rounded-lg bg-aqua-950/60;
+    rounded-lg sm:rounded-xl bg-aqua-950;
   & > a {
     @apply h-4 sm:h-6 xl:h-7
-    transition-all duration-200 ease-out
-    hover:scale-115 hover:rotate-3 hover:drop-shadow-white-sm;
-
-    > svg {
-      @apply fill-aqua-200;
+    transition-all duration-200 ease-out;
+    &:hover {
+      @apply scale-125 rotate-3 drop-shadow-white-md;
     }
-  }
-}
-
-@utility courselist {
-  @apply px-2 flex flex-col overflow-auto
-    border-l-2 border-aqua-100/40;
-
-  > span {
-    @apply italic;
-  }
-  > span:not(:first-child) {
-    @apply mt-3;
-  }
-
-  > a {
-    @apply w-fit link;
   }
 }
 
@@ -339,28 +326,21 @@ layer(base);
     }
   }
   
-  p {
-    @apply text-sm sm:text-base xl:text-lg;
-  }
-  
   h1, h2, h3, h4, h5, h6 {
     @apply font-jetbrains-mono font-semibold
     text-aqua-200;
   }
   
-  h1 {
-    @apply text-5xl sm:text-6xl xl:text-8xl
-    italic text-aqua-200;
-  }
+  h1 { @apply text-5xl sm:text-6xl xl:text-8xl; }
   h2 { @apply text-2xl sm:text-4xl xl:text-5xl; }
   h3 { @apply text-xl sm:text-3xl xl:text-4xl; }
-  h4 { @apply text-lg  sm:text-xl xl:text-2xl; }
+  h4 { @apply text-base sm:text-xl xl:text-2xl; }
   h5 { @apply text-base  sm:text-lg xl:text-xl; }
   h6 { @apply text-base xl:text-lg; }
 }
 
 body {
-  @apply text-sm sm:text-base xl:text-lg;
+  @apply text-xs sm:text-sm xl:text-base;
   margin: 0;
   min-width: fit-content;
   min-height: 100vh;
