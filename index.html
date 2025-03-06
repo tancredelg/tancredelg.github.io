@@ -41,7 +41,7 @@
                 brain ticking.
               </p>
               <p class="mb-2">
-                I'm currently working on a few projects while I finish my degree, along side some machine learning genomics research, 
+                I'm currently working on a few projects while I finish my degree, along side some machine learning biology research, 
                 and an autonomous underwater vehicle project in the McGill Robotics club. I have plans for a Master's in CS next, but while I figure out the research I want to do,
                 I'd love to work in the industry for a bit, as an intern or full-time.              
               </p>
@@ -81,6 +81,58 @@
             <a href="#projects-start" title="Jump to start of projects section" class="nav-button w-10 sm:w-14 xl:w-16 text-xl -my-4 sm:text-3xl xl:text-4xl flex-initial ml-auto">
               &DownArrow;
             </a>
+          </div>
+          <div class="timeline-entry">
+            <div class="timeline-date">Mar 25-<div></div>Feb 25-</div>
+            <div class="timeline-line"></div>
+            <div class="timeline-item">
+              <div class="project-header">
+                <h4>
+                  Simple Shooter Game
+                </h4>
+                <div class="logo-group">
+                  <a href="https://www.unrealengine.com/" title="Unreal Engine" target="_blank">
+                    <img class="h-full" src="images/unreal-engine-logo.svg">
+                  </a>
+                  <a href="https://isocpp.org/" title="C++" target="_blank">
+                    <img class="h-full" src="images/c++-logo.svg">
+                  </a>
+                </div>
+              </div>
+              <div class="project-content">
+                <div class="image-carousel">
+                  <div class="images">
+                    <img src="images/projects/SS - multiple enemies fight.jpg" alt="">
+                    <img src="images/projects/SS - jumping shot.jpg" alt="">
+                    <img src="images/projects/SS - lose screen.jpg" alt="">
+                    <img src="images/projects/SS - behaviour tree.png" alt="">
+                    <img src="images/projects/SS - anim state machines labelled.png" alt="">
+                    <video src="images/projects/SS - behaviour demo.mp4" loop muted playsinline>
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                  <div>
+                    <button>&lt;</button>
+                    <h5>1/?</h5>
+                    <button>&gt;</button>
+                  </div>
+                </div>
+                <div class="project-description">
+                  <p>
+                    With some UE5 experience under my belt - but only using blueprints - I decided to learn the C++ side of Unreal Engine by creating a simple shooter game.
+                    This project was my playground for exploring various aspects of C++-oriented game development through UE5, from input handling to UI updates, to creating base classes for guns and AI characters.
+                    I also took the opportunity to learn about more of the engine's built-in systems, like behavior trees and animation state machines, both helpful tools for creating dynamic and engaging gameplay.
+                  </p>
+                  <p>
+                    Aside from learning lots about the engine's C++ API while making the foundations of a shooter game, I got to use blend spaces in combination with nested animation state machines to create fluid character animations,
+                    and behavour trees to create intelligent AI characters that can chase, look for, or shoot at the player, or return to their posts (if the player escapes their line of sight for long enough), using a NavMesh for pathfinding under the hood.
+                  </p>
+                  <p>
+                    This project exposed me further to the industry-grade game development possible with Unreal Engine, and gaining broader experience with the engine - including its C++ API - leaves me equipped and excited to tackle bigger game dev amibitions in the future.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="timeline-entry">
             <div class="timeline-date">Jan 25-</div>
@@ -258,7 +310,7 @@
                 </div>  
                 <div class="project-description">
                   <p>
-                    For the 3rd and final assignment of McGill's Distributed Systems grad course (COMP 512), 
+                    For one of the projects of McGill's Distributed Systems course (<a class="link" href="https://www.mcgill.ca/study/2024-2025/courses/comp-512" target="_blank">COMP 512</a>),
                     we had to work in teams of 2 to build a distributed computing platform with Apache Zookeeper. 
                     The objective was to have a 'manager' server that would receive tasks from clients and distribute them to a pool of 'worker' servers,
                     which would then execute the tasks and return the results to the manager and then to the client.                  
@@ -322,7 +374,7 @@
                 <div class="project-description">  
                   <p>
                     Although more on the backburner, I'm working on a geography game for people to create and share quizzes of the world's countries, cities, and other geographical features. 
-                    The game leverages precise, public GIS data to generate mesh-based objects in Unity, providing an accurate and interactive representation of the world.
+                    The game leverages precise, public GIS data (<a class="link" href="https://www.naturalearthdata.com/" target="_blank">Natural Earth</a>) to generate mesh-based objects in Unity, providing an accurate and interactive representation of the world.
                   </p>
                   <p>
                     I started the project with creating a multi-process mesh-generation pipeline using a Python implementation of Triangle, 
@@ -371,7 +423,7 @@
                 </div>  
                 <div class="project-description">
                   <p>
-                    My favourite assignment from McGill's Computer Animation course (COMP 559) was this 2D fluid simulation,
+                    My favourite assignment from McGill's Computer Animation course (<a class="link" href="https://www.mcgill.ca/study/2023-2024/courses/comp-559" target="_blank">COMP 559</a>) was this 2D fluid simulation,
                     featuring a grid-based Eulerian fluid solver based on Jos Stam's 2003 paper, Real-Time Fluid Dynamics for Games.
                   </p>
                   <p>
@@ -631,9 +683,9 @@
               </div>
               <div class="project-content">
                 <p>
-                  At the McGill Computational Genomics Lab, I'm working on flow matching techniques to analyze single-cell RNA-seq data, 
-                  which involves designing and training neural networks using PyTorch to learn velocity fields. 
-                  I'm only just starting to get a grasp of the project, but I'm really excited to see where it goes.
+                  At the McGill Computational Genomics Lab, I'm working on flow matching models for biological applications, 
+                  which involves designing and training neural networks using PyTorch to learn flow fields.
+                  There are lot's of interesting things to learn about in this field, and I'm excited to be working on this project with two Master's students from the lab.
                 </p>
               </div>
             </div>
@@ -657,7 +709,8 @@
                 <p>
                   In the McGill Robotics team, I'm working on the AUV project, in the software sub-team. 
                   My main focus has been our Unity simulation of our robot, which let's us test and iterate much faster than with traditional pool tests. 
-                  I've been refactoring the codebase to make it run smoother and faster, cutting down mean frame times by about 50% and reducing spikes by 30%. I'm also revamping the project's documentation to help new members get up to speed more quickly.
+                  I've been refactoring the codebase to make it run smoother and faster, cutting down mean frame times by about 50% and reducing spikes by 30%.
+                  I'm also revamping the project's documentation to help new members get up to speed more quickly, and most recently I've been helping in the team's migration from ROS1 to ROS2.
                 </p>
               </div>
             </div>
@@ -694,24 +747,16 @@
                     Honours Computer Science
                   </a>
                   degree at McGill University, in Montreal. 
-                  I've taken several more advanced courses in a range of topics now, including applied machine learning, computer animation, computational biology 
-                  and distributed systems to name my favourites. I'm hoping to add intelligent robotics to that list next semester, which I'm really looking forward to.
-                  If you want to know more about the courses I've taken and how they were, feel free to get in touch with me through the contact info above.
+                  I've taken several more advanced courses in a range of topics now, namely applied machine learning, computer animation, computational biology,
+                  distributed systems, and this semester intelligent robotics. If you want to know more about the courses I've taken and how they were,
+                  feel free to get in touch with me through the contact info above.
                 </p>
                 <p>
                   I'm also involved in a few extracurriculars, including
-                  <a class="link" href="https://mcgillrobotics.com/" target="_blank">
-                    McGill Robotics
-                  </a>
-                  (I'm in the software team of the AUV project, currently working on maintaining and improving the simulation in Unity),
-                  <a class="link" href="https://gamedevmcgill.ca/" target="_blank">
-                    GameDev McGill
-                  </a>
-                  , and
-                  <a class="link" href="https://www.instagram.com/mcgillttclub/" target="_blank">
-                    McGill Table Tennis Club
-                  </a>
-                  .
+                  <a class="link" href="https://mcgillrobotics.com/" target="_blank">McGill Robotics</a>
+                  (I'm in the software team of the AUV project, maintaining and improving the simulation in Unity, and now helping with a ROS1 to ROS2 migration),
+                  <a class="link" href="https://gamedevmcgill.ca/" target="_blank">GameDev McGill</a>, and
+                  <a class="link" href="https://www.instagram.com/mcgillttclub/" target="_blank">McGill Table Tennis Club</a>.
                 </p>
               </div>
             </div>
