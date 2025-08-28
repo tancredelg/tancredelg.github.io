@@ -1,0 +1,13 @@
+---
+const { href, imgsrc } = Astro.props;
+const text = (() => {
+    const parts = href.split('/');
+    const last = parts.pop() || '';
+    return href.includes('/') ? '/' + last : last.split(' ').pop();
+})();
+---
+
+<a href={href} target="_blank" class="contact-button group">
+    <img class="size-6" src={imgsrc} alt={`Icon for contact: ${href}`}>
+    <span>{text}</span>
+</a>

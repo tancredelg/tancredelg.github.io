@@ -1,0 +1,33 @@
+---
+// Define the "shape" of the data this component expects
+export interface Props {
+    company: string;
+    companyUrl?: string;
+    title: string;
+    description: string;
+    fromDate: string;
+    toDate?: string;
+}
+
+const { company, companyUrl, title, description, fromDate, toDate } = Astro.props;
+---
+
+<div class="border rounded-lg p-4 bg-white/5">
+    <h3>
+        {company}
+    </h3>
+  <h4 class="font-bold text-lg">{title}</h4>
+  <p class="text-gray-300 my-2">{description}</p>
+  <div class="flex flex-wrap gap-2 my-3">
+    <span class="text-xs bg-blue-900/50 text-blue-300 px-2 py-1 rounded-full">
+      {fromDate} - {toDate || 'Present'}
+    </span>
+  </div>
+  <div class="flex gap-4">
+    {companyUrl && (
+      <a href ={companyUrl} target="_blank" class="hover:underline">
+        Company Website
+        </a>
+    )}
+  </div>
+</div>

@@ -1,0 +1,65 @@
+---
+import type { ProjectProps } from '../data/projects.ts';
+
+// Technology name to image asset mapping
+const techIconMap: Record<string, string> = {
+    'python': '/src/assets/python-logo-only-cropped.png',
+    'java': '/src/assets/java-logo-small.svg',
+    'c++': '/src/assets/c++-logo.svg',
+    'javascript': '/src/assets/js-logo.svg',
+    'unreal-engine': '/src/assets/unreal-engine-logo.svg',
+    'unity': '/src/assets/unity-logo.svg',
+    'flask': '/src/assets/flask-logo-cropped.png',
+    'htmx': '/src/assets/htmx-logo.png',
+    'sqlite': '/src/assets/sqlite-logo.svg',
+    'tailwindcss': '/src/assets/tailwindcss-mark.d52e9897.svg',
+    'apache-zookeeper': '/src/assets/apache-zookeeper-logo.png',
+    'opencv': '/src/assets/opencv-logo.webp',
+    'moderngl': '/src/assets/moderngl-logo.png',
+};
+
+const {
+    title,
+    description,
+    fromDate,
+    toDate,
+    categories = [],
+    technologies = [],
+    repoUrl,
+    liveUrl,
+    media = [],
+} = Astro.props as ProjectProps;
+---
+
+<div
+    class="project-card group" data-categories={categories}
+    style={media.length > 0 && media[0].type === 'image' ? `background-image: url('${media[0].src}'); background-size: cover; background-position: center;` : ''}
+>
+    {media.length > 0 && media[0].type === 'image' && (
+        <div class="absolute inset-0 group-hover:bg-white/5 transition-all duration-200 ease-out bg-black/10 pointer-events-none z-0"></div>
+    )}
+    <div class="z-1">
+        <h4 class="font-semibold group-hover:text-white/100 text-white/95 transition-all duration-200 text-2xl">{title}</h4>
+        <!-- {(liveUrl || repoUrl) &&
+            <div class="flex gap-3">
+                {liveUrl && <a href={liveUrl} target="_blank" class="hover:underline">Live Demo</a>}
+                {repoUrl && <a href={repoUrl} target="_blank" class="hover:underline">Source Code</a>}
+            </div>
+        } -->
+        <div class="flex overflow-x-auto w-fit gap-2 ">
+            {technologies.map(tech => {
+                const iconSrc = techIconMap[tech];
+                return iconSrc ? (
+                    <img 
+                        src={iconSrc} 
+                        alt={tech} 
+                        title={tech}
+                        class="h-7 w-fit object-contain"
+                    />
+                ) : (
+                    <span class="text-xs bg-blue-400/60 text-blue-50 px-2 py-1 rounded-lg text-nowrap">{tech}</span>
+                );
+            })}
+        </div>
+    </div>  
+</div>

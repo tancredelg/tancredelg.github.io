@@ -1,0 +1,44 @@
+---
+import Welcome from '../components/Welcome.astro';
+import SectionCard from '../components/SectionCard.astro';
+import Layout from '../layouts/Layout.astro';
+import ContactButton from '../components/ContactButton.astro';
+import TabNavigator from '../components/TabNavigator.astro';
+
+
+import githubsvg from '../assets/github.svg';
+import mailtosvg from '../assets/mailto.svg';
+import linkedinsvg from '../assets/linkedin.svg';
+
+---
+
+<Layout>
+	<div class="w-full h-full lg:px-10 sm:px-6 px-4 py-[5vh] flex flex-col lg:flex-row gap-8 justify-center">
+		<div class="basis-md flex flex-col gap-3">
+			<div class="w-full flex items-stretch gap-3 items-end justify-between">
+				<img src="src/data/Portrait TLG head + neck.jpg" class="lg:min-w-20 min-w-36 flex-1 crop bg-amber-800 rounded-xl">
+				<div class="flex-5 lg:flex-[1.6] flex flex-col justify-center gap-x-1.5 flex-wrap
+					text-3xl sm:text-4xl leading-[1] font-medium"
+				>
+					<span class="">Tancrède</span>
+					<span class="">Lamort de Gail</span>
+					<div class="mt-auto flex flex-col flex-wrap gap-0">
+						<ContactButton href="https://github.com/tancredelg" imgsrc={githubsvg.src} />
+						<ContactButton href="https://www.linkedin.com/in/tancredelg" imgsrc={linkedinsvg.src} />
+						<ContactButton href="mailto: tancredelg@proton.me" imgsrc={mailtosvg.src} />
+					</div>
+				</div>
+			</div>
+			<p class="text-[15px]">
+				Hello! My name is Tancrède Lamort de Gail. I'm a French undergraduate computer science student at McGill University, interested in everything science and tech. Whether it's physics-based animation, distributed systems, computational biology, or making video games, I'll take on anything that gets my brain ticking.
+
+				I'm currently working on a few projects while I finish my degree, along side some machine learning biology research, and an autonomous underwater vehicle project in the McGill Robotics club. I have plans for a Master's in CS next, but while I figure out the research I want to do, I'd love to work in the industry for a bit, as an intern or full-time.
+
+				Want to get in touch? Feel free to use the contacts below!
+			</p>
+		</div>
+		<div class="basis-3xl flex flex-col">
+			<TabNavigator />
+		</div>
+	</div>
+</Layout>

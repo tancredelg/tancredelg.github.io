@@ -1,0 +1,138 @@
+---
+import ProjectCard from './ProjectCard.astro';
+import type { ProjectProps } from '../data/projects';
+import { categories } from '../data/projects'; // Import categories for buttons
+import ProjectModal from './ProjectModal.astro';
+
+export interface Props {
+    projects: ProjectProps[];
+}
+
+const { projects } = Astro.props;
+---
+
+{/* <div id="projects" class="tab-panel"> */}
+<nav id="filter">
+    <div class="filter-slider"></div>
+    {categories.map(category => (
+        <button data-category={category.id} class="filter-button">
+            {category.name}
+        </button>
+    ))}
+</nav>
+
+<div id="project-list">
+    {projects.map((project, i) => (
+        <ProjectCard {...project} data-index={i} />
+    ))}
+</div>
+
+<!-- Prerendered modals for each project -->
+{projects.map((project, i) => (
+    <ProjectModal project={project} index={i} />
+))}
+
+<script>
+    const projectsTab = document.querySelector('#projects');
+    const filterNav = projectsTab.querySelector('&> #filter');
+    const filterButtons = filterNav.querySelectorAll('.filter-button');
+    const filterTabSlider = filterNav.querySelector('.filter-slider');
+    const projectCards = projectsTab.querySelectorAll('.project-card');
+    const activeClass = 'active'; // Active state style
+
+    function setActiveButton(activeBtn) {
+        filterButtons.forEach(button => {
+            button.classList.remove(activeClass);
+        });
+        activeBtn.classList.add(activeClass);
+
+        // Animate the filter-slider
+        if (filterTabSlider && activeBtn) {
+            const navRect = filterNav.getBoundingClientRect();
+            const btnRect = activeBtn.getBoundingClientRect();
+            const left = btnRect.left - navRect.left;
+            filterTabSlider.style.left = left + 'px';
+            filterTabSlider.style.width = btnRect.width + 'px';
+            filterTabSlider.style.height = btnRect.height + 'px';
+        }
+    }
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const filterCategory = button.dataset.category;
+
+            setActiveButton(button);
+
+            projectCards.forEach(item => {
+                const itemCategories = item.dataset.categories;
+                // Show the item if the filter is "all", OR if its category matches
+                if (filterCategory === 'all' || itemCategories.includes(filterCategory)) {
+                    item.classList.remove('hidden');
+                    item.classList.add('flex');
+                } else {
+                    item.classList.add('hidden');
+                    item.classList.remove('flex');
+                }
+            });
+        });
+    });
+
+    // Set "All" as active by default on page load
+    const allButton = projectsTab.querySelector('[data-category="all"]');
+    if (allButton) {
+        allButton.click(); // Programmatically click "All" to initialize the view
+    }
+
+    // Reposition slider on window resize
+    window.addEventListener('resize', () => {
+        const activeBtn = filterNav.querySelector('.filter-button.' + activeClass);
+        if (activeBtn) setActiveButton(activeBtn);
+    });
+
+    // --- Modal logic for expanded project view ---
+    const modals = Array.from(document.querySelectorAll('.project-modal'));
+    const modalCloses = Array.from(document.querySelectorAll('.project-modal-close'));
+
+    projectCards.forEach((card, i) => {
+        card.addEventListener('click', e => {
+            // Prevent click on links inside card from opening modal
+            if (e.target && (e.target.tagName === 'A' || (e.target.closest && e.target.closest('a')))) return;
+            
+            // Hide all modals first
+            modals.forEach(modal => modal.classList.add('hidden'));
+            
+            // Show the clicked card's modal
+            modals[i].classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+    
+    modalCloses.forEach((btn, i) => {
+        btn.addEventListener('click', () => {
+            modals[i].classList.add('hidden');
+            document.body.style.overflow = '';
+        });
+    });
+    
+    // Close modal on background click
+    modals.forEach((modal, i) => {
+        modal.addEventListener('click', e => {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+        });
+    });
+    
+    // Close modal on Escape key
+    window.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+            modals.forEach(modal => {
+                if (!modal.classList.contains('hidden')) {
+                    modal.classList.add('hidden');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+    });
+</script>
