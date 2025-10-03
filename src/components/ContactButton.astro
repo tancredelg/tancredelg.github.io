@@ -1,13 +1,19 @@
 ---
-const { href, imgsrc } = Astro.props;
-const text = (() => {
-    const parts = href.split('/');
-    const last = parts.pop() || '';
-    return href.includes('/') ? '/' + last : last.split(' ').pop();
-})();
+import type { ContactProps } from '../data/contacts'
+
+const { url, shorthand, logo } = Astro.props as ContactProps
 ---
 
-<a href={href} target="_blank" class="contact-button group">
-    <img class="size-6" src={imgsrc} alt={`Icon for contact: ${href}`}>
-    <span>{text}</span>
+<a href={url} target="_blank" class="contact-button group">
+    {
+        logo.type === 'imgpath' ? (
+            <img class="size-5 lg:size-6" src={logo.value} alt={`Icon for contact: ${url}`} />
+        ) : (
+            <div
+                class="size-5 lg:size-6 inline-flex items-center justify-center"
+                set:html={logo.value}
+            />
+        )
+    }
+    <span>{shorthand}</span>
 </a>

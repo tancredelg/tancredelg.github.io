@@ -1,10 +1,10 @@
 ---
-import ExperienceCard from './ExperienceCard.astro';
-import ProjectCard from './ProjectCard.astro';
-// import ExperienceCard from './ExperienceCard.astro';
-import ProjectGallery from './ProjectGallery.astro';
-import { projects } from '../data/projects'; // Import your project data
-
+import ProjectCard from './ProjectCard.astro'
+import ExperienceCard from './ExperienceCard.astro'
+import EducationCard from './EducationCard.astro'
+import { projects } from '../data/projects'
+import { experiences } from '../data/experiences'
+import { education } from '../data/education'
 ---
 
 <div id="tab-container">
@@ -15,87 +15,79 @@ import { projects } from '../data/projects'; // Import your project data
         <button data-tab="education" class="tab-button">Education</button>
     </nav>
 
-    <div id="projects" class="tab-panel">
-        <ProjectGallery projects={projects} />
+    <div id="projects" class="tab-panel group/tab">
+        {projects.map((project) => <ProjectCard {...project} />)}
     </div>
 
-    <div id="experience" class="tab-panel">
-        <ExperienceCard
-            company="McGill Robotics"
-            companyUrl="https://mcgillrobotics.com"
-            title="AUV Software Engineer"
-            description="Developed software for autonomous underwater vehicles."
-            fromDate="2024-09"
-            toDate="2025-06"
-        />
+    <div id="experience" class="tab-panel group/tab">
+        {experiences.map((exp) => <ExperienceCard {...exp} />)}
     </div>
 
-    <div id="education" class="tab-panel">
-    <!-- <ExperienceCard company="McGill Robotics" ... /> -->
+    <div id="education" class="tab-panel group/tab">
+        {education.map((edu) => <EducationCard {...edu} />)}
     </div>
 </div>
 
-
 <script>
     // Get all the buttons and panels
-    const tabContainer = document.querySelector('#tab-container');
-    const tabButtons = tabContainer.querySelectorAll('.tab-button');
-    const tabPanels = tabContainer.querySelectorAll('.tab-panel');
-    const tabSlider = tabContainer.querySelector('.tab-slider');
+    const tabContainer = document.querySelector('#tab-container')
+    const tabButtons = tabContainer.querySelectorAll('.tab-button')
+    const tabPanels = tabContainer.querySelectorAll('.tab-panel')
+    const tabSlider = tabContainer.querySelector('.tab-slider')
 
     // Function to set the active tab and animate the slider
     function setActiveTab(tabName) {
-        let activeButton = null;
-        tabButtons.forEach(button => {
+        let activeButton = null
+        tabButtons.forEach((button) => {
             if (button.dataset.tab === tabName) {
-                button.classList.add('active');
-                activeButton = button;
+                button.classList.add('active')
+                activeButton = button
             } else {
-                button.classList.remove('active');
+                button.classList.remove('active')
             }
-        });
+        })
 
         // Hide all panels, then show the correct one
-        tabPanels.forEach(panel => {
+        tabPanels.forEach((panel) => {
             if (panel.id === tabName) {
-                panel.classList.remove('hidden');
-                panel.classList.add('flex');
+                panel.classList.remove('hidden')
+                panel.classList.add('flex')
             } else {
-                panel.classList.add('hidden');
-                panel.classList.remove('flex');
+                panel.classList.add('hidden')
+                panel.classList.remove('flex')
             }
-        });
+        })
 
         // Animate the tab-slider to the active button
         if (activeButton && tabSlider) {
-            const nav = activeButton.parentElement;
-            const navRect = nav.getBoundingClientRect();
-            const btnRect = activeButton.getBoundingClientRect();
+            const nav = activeButton.parentElement
+            const navRect = nav.getBoundingClientRect()
+            const btnRect = activeButton.getBoundingClientRect()
             // Calculate left relative to nav
-            const left = btnRect.left - navRect.left;
-            tabSlider.style.left = left + 'px';
+            const left = btnRect.left - navRect.left
+            tabSlider.style.left = left + 'px'
             // Adjust top position to account for nav's padding
-            const navStyles = window.getComputedStyle(nav);
+            const navStyles = window.getComputedStyle(nav)
             // const navPaddingTop = parseFloat(navStyles.paddingTop) || 0;
-            tabSlider.style.top = (parseFloat(navStyles.paddingTop) || 0) + 'px';
-            tabSlider.style.width = btnRect.width + 'px';
-            tabSlider.style.height = btnRect.height + 'px';
+            tabSlider.style.top = (parseFloat(navStyles.paddingTop) || 0) + 'px'
+            tabSlider.style.width = btnRect.width + 'px'
+            tabSlider.style.height = btnRect.height + 'px'
         }
     }
 
     // Add click event listeners to each button
-    tabButtons.forEach(button => {
+    tabButtons.forEach((button) => {
         button.addEventListener('click', () => {
-            setActiveTab(button.dataset.tab);
-        });
-    });
+            setActiveTab(button.dataset.tab)
+        })
+    })
 
     // Set the first tab as active by default on page load
-    setActiveTab('projects');
+    setActiveTab('projects')
 
     // Reposition slider on window resize
     window.addEventListener('resize', () => {
-        const active = tabContainer.querySelector('.tab-button.active');
-        if (active) setActiveTab(active.dataset.tab);
-    });
+        const active = tabContainer.querySelector('.tab-button.active')
+        if (active) setActiveTab(active.dataset.tab)
+    })
 </script>

@@ -1,65 +1,97 @@
 ---
-import type { ProjectProps } from '../data/projects.ts';
-
-// Technology name to image asset mapping
-const techIconMap: Record<string, string> = {
-    'python': '/src/assets/python-logo-only-cropped.png',
-    'java': '/src/assets/java-logo-small.svg',
-    'c++': '/src/assets/c++-logo.svg',
-    'javascript': '/src/assets/js-logo.svg',
-    'unreal-engine': '/src/assets/unreal-engine-logo.svg',
-    'unity': '/src/assets/unity-logo.svg',
-    'flask': '/src/assets/flask-logo-cropped.png',
-    'htmx': '/src/assets/htmx-logo.png',
-    'sqlite': '/src/assets/sqlite-logo.svg',
-    'tailwindcss': '/src/assets/tailwindcss-mark.d52e9897.svg',
-    'apache-zookeeper': '/src/assets/apache-zookeeper-logo.png',
-    'opencv': '/src/assets/opencv-logo.webp',
-    'moderngl': '/src/assets/moderngl-logo.png',
-};
+import type { ProjectProps } from '../data/projects.ts'
+import TechnologyRibbon from './TechnologyRibbon.astro'
 
 const {
     title,
+    summary,
     description,
     fromDate,
     toDate,
     categories = [],
     technologies = [],
     repoUrl,
+    postUrl,
     liveUrl,
+    coverMedia,
     media = [],
-} = Astro.props as ProjectProps;
+} = Astro.props as ProjectProps
 ---
 
-<div
-    class="project-card group" data-categories={categories}
-    style={media.length > 0 && media[0].type === 'image' ? `background-image: url('${media[0].src}'); background-size: cover; background-position: center;` : ''}
->
-    {media.length > 0 && media[0].type === 'image' && (
-        <div class="absolute inset-0 group-hover:bg-white/5 transition-all duration-200 ease-out bg-black/10 pointer-events-none z-0"></div>
-    )}
-    <div class="z-1">
-        <h4 class="font-semibold group-hover:text-white/100 text-white/95 transition-all duration-200 text-2xl">{title}</h4>
-        <!-- {(liveUrl || repoUrl) &&
-            <div class="flex gap-3">
-                {liveUrl && <a href={liveUrl} target="_blank" class="hover:underline">Live Demo</a>}
-                {repoUrl && <a href={repoUrl} target="_blank" class="hover:underline">Source Code</a>}
-            </div>
-        } -->
-        <div class="flex overflow-x-auto w-fit gap-2 ">
-            {technologies.map(tech => {
-                const iconSrc = techIconMap[tech];
-                return iconSrc ? (
-                    <img 
-                        src={iconSrc} 
-                        alt={tech} 
-                        title={tech}
-                        class="h-7 w-fit object-contain"
+<div class="project-card group/card">
+    {
+        media.length > 0 && coverMedia >= 0 && coverMedia < media.length && (
+            <div class="absolute top-0 bottom-0 right-0 pointer-events-none z-0">
+                {media[coverMedia].type === 'image' ? (
+                    <img
+                        src={media[coverMedia].src}
+                        alt={media[coverMedia].alt ?? title}
+                        class="h-full w-auto object-cover select-none pointer-events-none"
                     />
-                ) : (
-                    <span class="text-xs bg-blue-400/60 text-blue-50 px-2 py-1 rounded-lg text-nowrap">{tech}</span>
-                );
-            })}
+                ) : media[coverMedia].type === 'video' ? (
+                    <video
+                        src={media[coverMedia].src}
+                        class="h-full w-auto object-cover select-none pointer-events-none"
+                        autoplay
+                        muted
+                        loop
+                        playsinline
+                    />
+                ) : null}
+
+                <div
+                    aria-hidden="true"
+                    class="absolute inset-0 pointer-events-none rounded-r-3xl"
+                    style={`background: linear-gradient(to right, oklch(13% 0.028 261.692) 0%, oklch(13% 0.028 261.692 / 0.83) 45%, transparent 100%);`}
+                />
+            </div>
+        )
+    }
+    <div id="content">
+        <div
+            class="group-hover/card:text-white/100 text-white/85 transition-all duration-100 ease-out"
+        >
+            <h4 class="font-medium text-xl sm:text-3xl lg:text-2xl">{title}</h4>
+            <p class="mt-0.5 sm:mt-1.5 lg:mt-0.5 sm:w-2/3 text-xs sm:text-base lg:text-sm">
+                {summary}
+            </p>
         </div>
-    </div>  
+        <TechnologyRibbon technologies={technologies} />
+    </div>
+
+    <div id="urls">
+        {
+            !repoUrl && !postUrl && !liveUrl && (
+                <span
+                    title="Feel free to contact me for more information"
+                    class="p-1 px-2 rounded-lg bg-black/85 text-gray-300/85 text-sm
+                    opacity-0 group-hover/card:opacity-100
+                    transition-all duration-100 ease-out"
+                >
+                    No links available, sorry!
+                </span>
+            )
+        }
+        {
+            repoUrl && (
+                <a href={repoUrl} target="_blank" class="bg-white text-neutral-900">
+                    {'Code </>'}
+                </a>
+            )
+        }
+        {
+            postUrl && (
+                <a href={postUrl} target="_blank" class="bg-white text-blue-800">
+                    {'Post 📝'}
+                </a>
+            )
+        }
+        {
+            liveUrl && (
+                <a href={liveUrl} target="_blank" class="bg-white text-red-800">
+                    {'Live 🚀'}
+                </a>
+            )
+        }
+    </div>
 </div>
