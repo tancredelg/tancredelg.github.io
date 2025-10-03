@@ -46,32 +46,32 @@ This project exposed me further to the industry-grade game development possible 
         media: [
             {
                 type: 'image',
-                src: 'src/data/projects/SS - multiple enemies fight.jpg',
+                src: '/images/projects/SS - multiple enemies fight.jpg',
                 alt: 'Fighting multiple enemies in the game',
             },
             {
                 type: 'image',
-                src: 'src/data/projects/SS - jumping shot.jpg',
+                src: '/images/projects/SS - jumping shot.jpg',
                 alt: 'Shooting while jumping',
             },
             {
                 type: 'image',
-                src: 'src/data/projects/SS - lose screen.jpg',
+                src: '/images/projects/SS - lose screen.jpg',
                 alt: 'Game over screen',
             },
             {
                 type: 'image',
-                src: 'src/data/projects/SS - behaviour tree cropped.png',
+                src: '/images/projects/SS - behaviour tree cropped.png',
                 alt: 'Unreal Engine behavior tree for AI',
             },
             {
                 type: 'image',
-                src: 'src/data/projects/SS - anim state machines labelled.png',
+                src: '/images/projects/SS - anim state machines labelled.png',
                 alt: 'Unreal Engine animation state machine',
             },
             {
                 type: 'video',
-                src: 'src/data/projects/SS - behaviour demo.mp4',
+                src: '/images/projects/SS - behaviour demo.mp4',
                 alt: 'Demonstration of AI behavior',
             },
         ],
@@ -92,22 +92,22 @@ The app has a simple Flask backend that sends API requests for the speech-to-tex
         media: [
             {
                 type: 'image',
-                src: 'src/data/projects/HH - landing.png',
+                src: '/images/projects/HH - landing.png',
                 alt: 'Landing page of the Help Help app',
             },
             {
                 type: 'image',
-                src: 'src/data/projects/HH - start recording.png',
+                src: '/images/projects/HH - start recording.png',
                 alt: 'Recording interface with animated eyes',
             },
             {
                 type: 'image',
-                src: 'src/data/projects/HH - stop recording.png',
+                src: '/images/projects/HH - stop recording.png',
                 alt: 'Interface after stopping the recording',
             },
             {
                 type: 'image',
-                src: 'src/data/projects/HH - response summary.png',
+                src: '/images/projects/HH - response summary.png',
                 alt: 'Summary page with feedback and metrics',
             },
         ],
@@ -131,22 +131,22 @@ The SQLite backend is a simple database storing courses and course sections, whi
         media: [
             {
                 type: 'image',
-                src: 'src/data/projects/MDP - term select.png',
+                src: '/images/projects/MDP - term select.png',
                 alt: 'Term selection interface',
             },
             {
                 type: 'image',
-                src: 'src/data/projects/MDP - course add.png',
+                src: '/images/projects/MDP - course add.png',
                 alt: 'Adding a course to the planner',
             },
             {
                 type: 'image',
-                src: 'src/data/projects/MDP - course remove NEW.png',
+                src: '/images/projects/MDP - course remove NEW.png',
                 alt: 'Removing a course from the planner',
             },
             {
                 type: 'image',
-                src: 'src/data/projects/MDP - course set grade.png',
+                src: '/images/projects/MDP - course set grade.png',
                 alt: 'Setting a grade for a course',
             },
         ],
@@ -170,22 +170,22 @@ By demo time, we had a fully functional system that could handle plenty of clien
         media: [
             {
                 type: 'image',
-                src: 'src/data/projects/DCP - full view 1.png',
+                src: '/images/projects/DCP - full view 1.png',
                 alt: 'Full system view with manager, workers, and clients',
             },
             {
                 type: 'image',
-                src: 'src/data/projects/DCP - manager cropped.png',
+                src: '/images/projects/DCP - manager cropped.png',
                 alt: 'Log output from the manager server',
             },
             {
                 type: 'image',
-                src: 'src/data/projects/DCP - worker logs 1.png',
+                src: '/images/projects/DCP - worker logs 1.png',
                 alt: 'Log output from a worker server',
             },
             {
                 type: 'image',
-                src: 'src/data/projects/DCP - worker logs 2.png',
+                src: '/images/projects/DCP - worker logs 2.png',
                 alt: 'Log output from another worker server',
             },
         ],
@@ -207,22 +207,22 @@ The aim of the game is for users to create their own quizzes by selecting specif
         media: [
             {
                 type: 'image',
-                src: 'src/data/projects/Cartographe - France hovered (cities hidden).png',
+                src: '/images/projects/Cartographe - France hovered (cities hidden).png',
                 alt: 'Map showing France highlighted',
             },
             {
                 type: 'image',
-                src: 'src/data/projects/Cartographe - Singapore hovered (cities rank 0-3).png',
+                src: '/images/projects/Cartographe - Singapore hovered (cities rank 0-3).png',
                 alt: 'Map showing Singapore with city ranks',
             },
             {
                 type: 'image',
-                src: 'src/data/projects/Cartographe - Panama City hovered (all cities).png',
+                src: '/images/projects/Cartographe - Panama City hovered (all cities).png',
                 alt: 'Map showing Panama City',
             },
             {
                 type: 'image',
-                src: 'src/data/projects/Cartographe - Greece mesh.png',
+                src: '/images/projects/Cartographe - Greece mesh.png',
                 alt: 'Generated 3D mesh for Greece',
             },
         ],
@@ -244,12 +244,12 @@ After finally achieving a working simulation, vectorizing the code via numpy mad
         media: [
             {
                 type: 'image',
-                src: 'src/data/projects/EFS - screenshot cropped.png',
+                src: '/images/projects/EFS - screenshot cropped.png',
                 alt: 'Screenshot of the fluid simulation',
             },
             {
                 type: 'video',
-                src: 'src/data/projects/EFS - sink source compressed.mp4',
+                src: '/images/projects/EFS - sink source compressed.mp4',
                 alt: 'Video of the fluid simulation with a sink and source',
             },
         ],
@@ -272,15 +272,15 @@ Learning UE5 has definitely been intense compared to Unity, but exploring such a
         media: [
             {
                 type: 'image',
-                src: 'src/data/projects/MM - health pack.png',
+                src: '/images/projects/MM - health pack.png',
                 alt: 'Player collecting a health pack',
             },
             {
                 type: 'image',
-                src: 'src/data/projects/MM - return to play area.png',
+                src: '/images/projects/MM - return to play area.png',
                 alt: 'Warning message to return to the play area',
             },
-            { type: 'image', src: 'src/data/projects/MM - dead.png', alt: 'Player death screen' },
+            { type: 'image', src: '/images/projects/MM - dead.png', alt: 'Player death screen' },
         ],
     },
     {
@@ -301,37 +301,37 @@ The game also features a skill tree and leveling system, where players can spend
         media: [
             {
                 type: 'image',
-                src: 'src/data/projects/STS - mid game fighting enemies with sword.png',
+                src: '/images/projects/STS - mid game fighting enemies with sword.png',
                 alt: 'Player fighting enemies with a sword',
             },
             {
                 type: 'image',
-                src: 'src/data/projects/STS - in game entering portal room.png',
+                src: '/images/projects/STS - in game entering portal room.png',
                 alt: 'Player entering a portal room',
             },
             {
                 type: 'image',
-                src: 'src/data/projects/STS - in game shooting arrow.png',
+                src: '/images/projects/STS - in game shooting arrow.png',
                 alt: 'Player shooting an arrow',
             },
             {
                 type: 'image',
-                src: 'src/data/projects/STS - skill tree.png',
+                src: '/images/projects/STS - skill tree.png',
                 alt: 'The in-game skill tree',
             },
             {
                 type: 'image',
-                src: 'src/data/projects/STS - death screen.png',
+                src: '/images/projects/STS - death screen.png',
                 alt: 'The game over screen',
             },
             {
                 type: 'image',
-                src: 'src/data/projects/STS - load save screen.png',
+                src: '/images/projects/STS - load save screen.png',
                 alt: 'The load game screen',
             },
             {
                 type: 'video',
-                src: 'src/data/projects/STS - tests video compressed.mp4',
+                src: '/images/projects/STS - tests video compressed.mp4',
                 alt: 'Gameplay video montage',
             },
         ],
@@ -350,28 +350,28 @@ Making this game taught me lots about grids and tilemaps, collision types and co
         media: [
             {
                 type: 'image',
-                src: 'src/data/projects/DE - menu screen.png',
+                src: '/images/projects/DE - menu screen.png',
                 alt: 'Main menu screen',
             },
             {
                 type: 'image',
-                src: 'src/data/projects/DE - jump shot.png',
+                src: '/images/projects/DE - jump shot.png',
                 alt: 'Player shooting while jumping',
             },
             {
                 type: 'image',
-                src: 'src/data/projects/DE - rising water.png',
+                src: '/images/projects/DE - rising water.png',
                 alt: 'Water level rising in the dungeon',
             },
             {
                 type: 'image',
-                src: 'src/data/projects/DE - running in tunnel.png',
+                src: '/images/projects/DE - running in tunnel.png',
                 alt: 'Player running through a tunnel',
             },
-            { type: 'image', src: 'src/data/projects/DE - game over.png', alt: 'Game over screen' },
+            { type: 'image', src: '/images/projects/DE - game over.png', alt: 'Game over screen' },
             {
                 type: 'image',
-                src: 'src/data/projects/DE - end screen.png',
+                src: '/images/projects/DE - end screen.png',
                 alt: 'Level completion screen',
             },
         ],
@@ -390,15 +390,15 @@ This was a great project for learning about all sorts of things in the Unity gam
         media: [
             {
                 type: 'image',
-                src: 'src/data/projects/GG - mid level.png',
+                src: '/images/projects/GG - mid level.png',
                 alt: 'Mid-game screenshot of a level',
             },
             {
                 type: 'image',
-                src: 'src/data/projects/GG - level complete.png',
+                src: '/images/projects/GG - level complete.png',
                 alt: 'Level complete screen',
             },
-            { type: 'image', src: 'src/data/projects/GG - game over.png', alt: 'Game over screen' },
+            { type: 'image', src: '/images/projects/GG - game over.png', alt: 'Game over screen' },
         ],
     },
 ]

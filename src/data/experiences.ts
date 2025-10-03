@@ -22,7 +22,7 @@ export const experiences: ExperienceProps[] = [
             name: 'McGill Robotics',
             url: 'https://mcgillrobotics.com',
             logo: {
-                src: 'src/assets/mcgill-robotics-logo.png',
+                src: '/images/mcgill-robotics-logo.png',
                 alt: 'McGill Robotics Logo',
             },
         },

@@ -19,7 +19,7 @@ export const education: EducationProps[] = [
             name: 'EPFL',
             url: 'https://www.epfl.ch',
             logo: {
-                src: 'src/assets/epfl-logo-cropped.png',
+                src: '/images/epfl-logo-cropped.png',
                 alt: 'EPFL Logo',
             },
         },
@@ -33,7 +33,7 @@ export const education: EducationProps[] = [
             name: 'McGill University',
             url: 'https://www.mcgill.ca',
             logo: {
-                src: 'src/assets/mcgill-logo-s.jpg',
+                src: '/images/mcgill-logo-s.jpg',
                 alt: 'McGill University Logo',
             },
         },
@@ -47,7 +47,7 @@ export const education: EducationProps[] = [
             name: 'Epsom College',
             url: 'https://www.epsomcollege.org.uk/',
             logo: {
-                src: 'src/assets/epsom-college-logo-s.jpg',
+                src: '/images/epsom-college-logo-s.jpg',
                 alt: 'Epsom College Logo',
             },
         },

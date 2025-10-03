@@ -9,15 +9,15 @@
     /* --color-stone-200: oklch(0.923 0.003 48.717); */
     --color-stone-250: oklch(0.896 0.004 52.366);
     /* --color-stone-300: oklch(0.869 0.005 56.366); */
-    --color-darker: oklch(20.137% 0.02597 294.532);
-    --color-dark: oklch(22.841% 0.01801 255.736);
+    --color-darker: oklch(21.073% 0.02761 293.715);
+    --color-dark: oklch(22.804% 0.02044 254.919);
     --color-medium: oklch(45.285% 0.07205 198.853);
     --color-light: oklch(70.684% 0.10912 198.08);
 }
 
 :not(*) {
-    background-color: oklch(20.137% 0.02597 294.532);
-    background-color: oklch(22.841% 0.01801 255.736);
+    background-color: oklch(21.073% 0.02761 293.715);
+    background-color: oklch(22.804% 0.02044 254.919);
     background-color: oklch(36.767% 0.05805 212.325);
     background-color: oklch(70.684% 0.10912 198.08);
 }
