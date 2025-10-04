@@ -14,4 +14,9 @@ import '../styles/global.css'
     <body>
         <slot />
     </body>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            document.body.classList.add('body-animate-in')
+        })
+    </script>
 </html>

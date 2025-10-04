@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro'
 import ContactButton from '../components/ContactButton.astro'
 import TabNavigator from '../components/TabNavigator.astro'
 
+import profilePic from '../assets/Portrait TLG head + neck.jpg'
+
 import { contacts } from '../data/contacts'
 ---
 
@@ -15,10 +17,10 @@ import { contacts } from '../data/contacts'
                 <div
                     class="flex-2 flex gap-3 items-center justify-start p-3 rounded-3xl bg-gray-950"
                 >
-                    <div class="w-23 aspect-[7/8] bg-white rounded-2xl overflow-hidden">
+                    <div class="w-21 sm:w-23 aspect-[7/8] bg-white rounded-2xl overflow-hidden">
                         <img
-                            src="/Portrait TLG head + neck.jpg"
-                            alt="Portrait"
+                            src={profilePic.src}
+                            alt="Portrait of Tancrède Lamort de Gail"
                             class="w-full h-full object-cover"
                         />
                     </div>

@@ -83,7 +83,7 @@ import { education } from '../data/education'
     })
 
     // Set the first tab as active by default on page load
-    setActiveTab('projects')
+    setTimeout(() => setActiveTab('projects'), 350)
 
     // Reposition slider on window resize
     window.addEventListener('resize', () => {

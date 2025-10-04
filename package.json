@@ -4,7 +4,6 @@
     "type": "module",
     "version": "0.0.1",
     "scripts": {
-        "deploy": "gh-pages -d dist",
         "dev": "astro dev",
         "devh": "astro dev --host",
         "build": "astro build",
@@ -15,8 +14,5 @@
         "@tailwindcss/vite": "^4.1.11",
         "astro": "^5.12.8",
         "tailwindcss": "^4.1.11"
-    },
-    "devDependencies": {
-        "gh-pages": "^6.3.0"
     }
 }

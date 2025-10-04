@@ -6,14 +6,29 @@ const { url, shorthand, logo } = Astro.props as ContactProps
 
 <a href={url} target="_blank" class="contact-button group">
     {
-        logo.type === 'imgpath' ? (
-            <img class="size-5 lg:size-6" src={logo.value} alt={`Icon for contact: ${url}`} />
-        ) : (
-            <div
-                class="size-5 lg:size-6 inline-flex items-center justify-center"
-                set:html={logo.value}
-            />
-        )
+        logo &&
+            (() => {
+                if (logo.type === 'img' && logo.value) {
+                    // Raster image or imported asset
+                    const src = typeof logo.value === 'string' ? logo.value : logo.value.src
+                    return <img class="size-5 lg:size-6" src={src} alt={shorthand + ' logo/icon'} />
+                }
+                if (logo.type === 'svg' && typeof logo.value === 'function') {
+                    // Imported SVG as component
+                    const LogoComponent = logo.value
+                    return <LogoComponent class="size-5 lg:size-6" alt={shorthand + ' logo/icon'} />
+                }
+                if (logo.type === 'html' && typeof logo.value === 'string') {
+                    // Raw HTML string
+                    return (
+                        <div
+                            class="size-5 lg:size-6 inline-flex items-center justify-center"
+                            set:html={logo.value}
+                        />
+                    )
+                }
+                return null
+            })()
     }
     <span>{shorthand}</span>
 </a>

@@ -11,12 +11,14 @@ const { technologies } = Astro.props as { technologies: string[] }
             const tech = techIconMap[techId]
             return tech ? (
                 <a href={tech.url} title={tech.title} target="_blank">
-                    {tech.logo.type === 'imgpath' ? (
+                    {tech.logo.type === 'img' ? (
                         <img
-                            src={tech.logo.value}
+                            src={tech.logo.value.src}
                             alt={tech.title}
                             class="block h-6 sm:h-8 lg:h-6.5 w-auto object-contain"
                         />
+                    ) : tech.logo.type === 'svg' ? (
+                        <tech.logo.value class="block h-6 sm:h-8 lg:h-6.5 w-auto object-contain" />
                     ) : (
                         <div
                             class="h-6 sm:h-8 lg:h-6.5 inline-flex items-center justify-center"

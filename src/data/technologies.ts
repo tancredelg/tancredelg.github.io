@@ -2,51 +2,72 @@ export interface TechProps {
     title: string
     url: string
     logo: {
-        type: 'imgpath' | 'html'
-        value: string
+        type: 'img' | 'svg' | 'html'
+        value: string | ImageMetadata | ((props: any) => any)
     }
 }
+
+import pythonLogo from '../assets/logos-icons/python-logo-only-cropped.png'
+import javaLogo from '../assets/logos-icons/java-logo-small.svg'
+import cLogo from '../assets/logos-icons/c-logo.svg'
+import cppLogo from '../assets/logos-icons/c++-logo.svg'
+import jsLogo from '../assets/logos-icons/js-logo.svg'
+// import tsLogo from '../assets/logos-icons/typescript-logo.svg'
+import unrealLogo from '../assets/logos-icons/unreal-engine-logo.svg'
+import unityLogo from '../assets/logos-icons/unity-logo.svg'
+import flaskLogo from '../assets/logos-icons/flask-logo-cropped.png'
+import sqliteLogo from '../assets/logos-icons/sqlite-logo.svg'
+import tailwindLogo from '../assets/logos-icons/tailwindcss-mark.d52e9897.svg'
+import zookeeperLogo from '../assets/logos-icons/apache-zookeeper-logo.png'
+import openaiLogo from '../assets/logos-icons/OpenAI-white-monoblossom.svg'
+import opencvLogo from '../assets/logos-icons/opencv-logo.webp'
+import modernglLogo from '../assets/logos-icons/moderngl-logo.png'
 
 export const technologies: Record<string, TechProps> = {
     python: {
         title: 'Python',
         url: 'https://www.python.org/',
-        logo: { type: 'imgpath', value: '/images/python-logo-only-cropped.png' },
+        logo: { type: 'img', value: pythonLogo },
     },
     java: {
         title: 'Java',
         url: 'https://www.java.com/',
-        logo: { type: 'imgpath', value: '/images/java-logo-small.svg' },
+        logo: { type: 'svg', value: javaLogo },
+    },
+    c: {
+        title: 'C',
+        url: 'https://www.c-language.org/',
+        logo: { type: 'svg', value: cLogo },
     },
     cpp: {
         title: 'C++',
         url: 'https://isocpp.org/',
-        logo: { type: 'imgpath', value: '/images/c++-logo.svg' },
+        logo: { type: 'svg', value: cppLogo },
     },
     js: {
         title: 'JavaScript',
         url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
-        logo: { type: 'imgpath', value: '/images/js-logo.svg' },
+        logo: { type: 'svg', value: jsLogo },
     },
-    ts: {
-        title: 'TypeScript',
-        url: 'https://www.typescriptlang.org/',
-        logo: { type: 'imgpath', value: '/images/typescript-logo.svg' },
-    },
+    // ts: {
+    //     title: 'TypeScript',
+    //     url: 'https://www.typescriptlang.org/',
+    //     logo: { type: 'svg', value: tsLogo },
+    // },
     unreal: {
         title: 'Unreal Engine',
         url: 'https://www.unrealengine.com/',
-        logo: { type: 'imgpath', value: '/images/unreal-engine-logo.svg' },
+        logo: { type: 'svg', value: unrealLogo },
     },
     unity: {
         title: 'Unity',
         url: 'https://unity.com/',
-        logo: { type: 'imgpath', value: '/images/unity-logo.svg' },
+        logo: { type: 'svg', value: unityLogo },
     },
     flask: {
         title: 'Flask',
         url: 'https://flask.palletsprojects.com/',
-        logo: { type: 'imgpath', value: '/images/flask-logo-cropped.png' },
+        logo: { type: 'img', value: flaskLogo },
     },
     htmx: {
         title: 'htmx',
@@ -63,32 +84,32 @@ export const technologies: Record<string, TechProps> = {
     sqlite: {
         title: 'SQLite',
         url: 'https://sqlite.org/',
-        logo: { type: 'imgpath', value: '/images/sqlite-logo.svg' },
+        logo: { type: 'svg', value: sqliteLogo },
     },
     tailwind: {
         title: 'Tailwind CSS',
         url: 'https://tailwindcss.com/',
-        logo: { type: 'imgpath', value: '/images/tailwindcss-mark.d52e9897.svg' },
+        logo: { type: 'svg', value: tailwindLogo },
     },
     zookeeper: {
         title: 'Apache ZooKeeper',
         url: 'https://zookeeper.apache.org/',
-        logo: { type: 'imgpath', value: '/images/apache-zookeeper-logo.png' },
+        logo: { type: 'img', value: zookeeperLogo },
     },
     openai: {
         title: 'OpenAI',
         url: 'https://openai.com/api/',
-        logo: { type: 'imgpath', value: '/images/OpenAI-white-monoblossom.svg' },
+        logo: { type: 'svg', value: openaiLogo },
     },
     opencv: {
         title: 'OpenCV',
         url: 'https://opencv.org/',
-        logo: { type: 'imgpath', value: '/images/opencv-logo.webp' },
+        logo: { type: 'img', value: opencvLogo },
     },
     moderngl: {
         title: 'ModernGL',
         url: 'https://moderngl.readthedocs.io/',
-        logo: { type: 'imgpath', value: '/images/moderngl-logo.png' },
+        logo: { type: 'img', value: modernglLogo },
     },
 }
 

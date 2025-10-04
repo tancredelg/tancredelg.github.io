@@ -22,22 +22,32 @@ const {
     {
         media.length > 0 && coverMedia >= 0 && coverMedia < media.length && (
             <div class="absolute top-0 bottom-0 right-0 pointer-events-none z-0">
-                {media[coverMedia].type === 'image' ? (
-                    <img
-                        src={media[coverMedia].src}
-                        alt={media[coverMedia].alt ?? title}
-                        class="h-full w-auto object-cover select-none pointer-events-none"
-                    />
-                ) : media[coverMedia].type === 'video' ? (
-                    <video
-                        src={media[coverMedia].src}
-                        class="h-full w-auto object-cover select-none pointer-events-none"
-                        autoplay
-                        muted
-                        loop
-                        playsinline
-                    />
-                ) : null}
+                {(() => {
+                    const item = media[coverMedia]
+                    const src = typeof item.src === 'string' ? item.src : (item.src?.src ?? '')
+                    if (item.type === 'image') {
+                        return (
+                            <img
+                                src={src}
+                                alt={item.alt ?? title}
+                                class="h-full w-auto object-cover select-none pointer-events-none"
+                            />
+                        )
+                    }
+                    if (item.type === 'video') {
+                        return (
+                            <video
+                                src={src}
+                                class="h-full w-auto object-cover select-none pointer-events-none"
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                            />
+                        )
+                    }
+                    return null
+                })()}
 
                 <div
                     aria-hidden="true"

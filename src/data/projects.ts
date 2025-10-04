@@ -3,19 +3,78 @@ export const categories = [
     { id: 'web-dev', name: 'Web Dev' },
     { id: 'game-dev', name: 'Game Dev' },
     { id: 'computer-graphics', name: 'Graphics' },
-    { id: 'ai-ml', name: 'AI/ML' },
+    { id: 'data-science', name: 'Data Science & AI' },
     { id: 'systems', name: 'Systems' },
 ]
 
-type CategoryId = 'web-dev' | 'game-dev' | 'computer-graphics' | 'ai-ml' | 'systems'
+type CategoryId = 'web-dev' | 'game-dev' | 'computer-graphics' | 'data-science' | 'systems'
+
+import type { ImageMetadata } from 'astro'
+
+import ssMultiple from '../assets/projects/SS - multiple enemies fight.jpg'
+import ssJump from '../assets/projects/SS - jumping shot.jpg'
+import ssLose from '../assets/projects/SS - lose screen.jpg'
+import ssBehavior from '../assets/projects/SS - behaviour tree cropped.png'
+import ssAnim from '../assets/projects/SS - anim state machines labelled.png'
+import ssBehaviorVid from '../assets/projects/SS - behaviour demo.mp4'
+
+import hhLanding from '../assets/projects/HH - landing.png'
+import hhStart from '../assets/projects/HH - start recording.png'
+import hhStop from '../assets/projects/HH - stop recording.png'
+import hhSummary from '../assets/projects/HH - response summary.png'
+
+import mdpTerm from '../assets/projects/MDP - term select.png'
+import mdpAdd from '../assets/projects/MDP - course add.png'
+import mdpRemove from '../assets/projects/MDP - course remove NEW.png'
+import mdpSetGrade from '../assets/projects/MDP - course set grade.png'
+
+import dcpFull from '../assets/projects/DCP - full view 1.png'
+import dcpMgr from '../assets/projects/DCP - manager cropped.png'
+import dcpWorker1 from '../assets/projects/DCP - worker logs 1.png'
+import dcpWorker2 from '../assets/projects/DCP - worker logs 2.png'
+
+import cartoFrance from '../assets/projects/Cartographe - France hovered (cities hidden).png'
+import cartoSing from '../assets/projects/Cartographe - Singapore hovered (cities rank 0-3).png'
+import cartoPanama from '../assets/projects/Cartographe - Panama City hovered (all cities).png'
+import cartoGreece from '../assets/projects/Cartographe - Greece mesh.png'
+
+import efsScreenshot from '../assets/projects/EFS - screenshot cropped.png'
+import efsVid from '../assets/projects/EFS - sink source compressed.mp4'
+
+import sfsCodeScreenshot from '../assets/projects/SFS - sfs_write() screenshot.png'
+
+import kfmaReportScreenshot from '../assets/projects/KFMA - report screenshot.png'
+
+import mmHealth from '../assets/projects/MM - health pack.png'
+import mmReturn from '../assets/projects/MM - return to play area.png'
+import mmDead from '../assets/projects/MM - dead.png'
+
+import stsMid from '../assets/projects/STS - mid game fighting enemies with sword.png'
+import stsPortal from '../assets/projects/STS - in game entering portal room.png'
+import stsArrow from '../assets/projects/STS - in game shooting arrow.png'
+import stsSkill from '../assets/projects/STS - skill tree.png'
+import stsDeath from '../assets/projects/STS - death screen.png'
+import stsLoad from '../assets/projects/STS - load save screen.png'
+import stsVid from '../assets/projects/STS - tests video compressed.mp4'
+
+import deMenu from '../assets/projects/DE - menu screen.png'
+import deJump from '../assets/projects/DE - jump shot.png'
+import deRising from '../assets/projects/DE - rising water.png'
+import deRun from '../assets/projects/DE - running in tunnel.png'
+import deGameOver from '../assets/projects/DE - game over.png'
+import deEnd from '../assets/projects/DE - end screen.png'
+
+import ggMid from '../assets/projects/GG - mid level.png'
+import ggComplete from '../assets/projects/GG - level complete.png'
+import ggGameOver from '../assets/projects/GG - game over.png'
 
 export interface ProjectProps {
     title: string // Title of the project
-    summary: string // Short summary of the project, shown on the project card
+    summary: string // Short (~250-300 character) summary of the project, shown on the project card
     description: string // Description of the project
     fromDate: string // Start date of the project, formatted as `Mon YYYY`
     toDate?: string // End date of the project, formatted as `Mon YYYY`, optional (for ongoing projects)
-    categories: CategoryId[] // Categories the project belongs to, e.g., ['web-dev', 'ai-ml'] (at least one required)
+    categories: CategoryId[] // Categories the project belongs to, e.g., ['web-dev', 'data-science'] (at least one required)
     technologies: string[] // Technologies used in the project, e.g., ['js', 'react', 'tailwind', 'unreal']
     repoUrl?: string // URL to the project's source code repository, optional
     postUrl?: string // URL to a blog post about the project, optional
@@ -23,7 +82,7 @@ export interface ProjectProps {
     coverMedia: number // Index of the media item to use as the cover image (0-based)
     media: {
         type: 'image' | 'video'
-        src: string // Source URL of the media
+        src: string | ImageMetadata // Source URL of the media or imported ImageMetadata
         alt?: string // Alternative text for the media, optional
     }[] // Media associated with the project, can be images or videos
 }
@@ -39,77 +98,17 @@ Aside from learning lots about the engine's C++ API while making the foundations
 
 This project exposed me further to the industry-grade game development possible with Unreal Engine, and gaining broader experience with the engine - including its C++ API - leaves me equipped and excited to tackle bigger game dev amibitions in the future.`,
         fromDate: 'Feb 2025',
-        toDate: 'Mar 2025',
+        toDate: 'Feb 2025',
         categories: ['game-dev'],
         technologies: ['unreal', 'cpp'],
         coverMedia: 3,
         media: [
-            {
-                type: 'image',
-                src: '/images/projects/SS - multiple enemies fight.jpg',
-                alt: 'Fighting multiple enemies in the game',
-            },
-            {
-                type: 'image',
-                src: '/images/projects/SS - jumping shot.jpg',
-                alt: 'Shooting while jumping',
-            },
-            {
-                type: 'image',
-                src: '/images/projects/SS - lose screen.jpg',
-                alt: 'Game over screen',
-            },
-            {
-                type: 'image',
-                src: '/images/projects/SS - behaviour tree cropped.png',
-                alt: 'Unreal Engine behavior tree for AI',
-            },
-            {
-                type: 'image',
-                src: '/images/projects/SS - anim state machines labelled.png',
-                alt: 'Unreal Engine animation state machine',
-            },
-            {
-                type: 'video',
-                src: '/images/projects/SS - behaviour demo.mp4',
-                alt: 'Demonstration of AI behavior',
-            },
-        ],
-    },
-    {
-        title: 'Help Help (McHacks 12)',
-        summary:
-            'Hackathon web app for interview practice that records responses, transcribes speech with Whisper, and uses GPT-4 to generate feedback on clarity and professionalism. Includes webcam-based eye-contact tracking and metrics like speaking speed and word-density to give actionable practice insights.',
-        description: `At McHacks 12, I worked in a team of 4 over 24h to create a web app that helps job-seekers practice for interviews. The app gives you a random question from one of three categories, and lets users record themselves responding to the question, during which a css-animated pair of eyes watch you to simulate the feeling of being watched during an interview. Once the user stops recording, the response is submitted to OpenAI's Whisper API for transcription of the audio into text, and a summary of the response is displayed to the user, providing key metrics like the size of the response, the speed at which they spoke, and the amount of eye contact made with the webcam, and, most importantly, a paragraph generated from OpenAI's GPT-4 API giving feedback on the language used, with a focus on themes like professionallism, conciseness, and clarity. We also chose to calculate word density, and highlight the overly 'dense' words in the response, as a means of pointing out potentially excessive repetition (e.g. 'like ... like ... like'). This feature ended up looking pretty cool, however we would have liked to include a stopword list to filter out words that are ok to repeat, such as 'the' or 'and', in order to avoid highlighting them.
-
-The app has a simple Flask backend that sends API requests for the speech-to-text conversion and then feedback generation, handles the inference of the vision model that tracks the user's eyes, and calculates some relevant metrics. The data is then sent back to the frontend on the summary page. The frontend is simple HTML & JavaScript (the latter mainly to record audio), and we opted for TailwindCSS for styling the UI, which helped in designing a UI.`,
-        fromDate: 'Jan 2025',
-        categories: ['web-dev', 'ai-ml'],
-        technologies: ['python', 'flask', 'js', 'openai', 'opencv', 'tailwind'],
-        repoUrl: 'https://github.com/LaurenS419/helphelp',
-        postUrl: 'https://devpost.com/software/interview-practice-4w65a2',
-        coverMedia: 3,
-        media: [
-            {
-                type: 'image',
-                src: '/images/projects/HH - landing.png',
-                alt: 'Landing page of the Help Help app',
-            },
-            {
-                type: 'image',
-                src: '/images/projects/HH - start recording.png',
-                alt: 'Recording interface with animated eyes',
-            },
-            {
-                type: 'image',
-                src: '/images/projects/HH - stop recording.png',
-                alt: 'Interface after stopping the recording',
-            },
-            {
-                type: 'image',
-                src: '/images/projects/HH - response summary.png',
-                alt: 'Summary page with feedback and metrics',
-            },
+            { type: 'image', src: ssMultiple, alt: 'Fighting multiple enemies in the game' },
+            { type: 'image', src: ssJump, alt: 'Shooting while jumping' },
+            { type: 'image', src: ssLose, alt: 'Game over screen' },
+            { type: 'image', src: ssBehavior, alt: 'Unreal Engine behavior tree for AI' },
+            { type: 'image', src: ssAnim, alt: 'Unreal Engine animation state machine' },
+            { type: 'video', src: ssBehaviorVid, alt: 'Demonstration of AI behavior' },
         ],
     },
     {
@@ -122,33 +121,38 @@ The project is built with Flask and SQLite on the backend, using htmx to dynamic
 
 The SQLite backend is a simple database storing courses and course sections, which I built by scraping course data from the McGill course website using Python's beautifulsoup4 library.`,
         fromDate: 'Nov 2024',
-        toDate: 'Dec 2024',
+        toDate: 'Feb 2025',
         categories: ['web-dev'],
         technologies: ['python', 'flask', 'sqlite', 'htmx', 'js'],
         repoUrl: 'https://github.com/tancredelg/mcgill-degree-planner',
         liveUrl: 'https://mcgill-degree-planner.vercel.app',
         coverMedia: 2,
         media: [
-            {
-                type: 'image',
-                src: '/images/projects/MDP - term select.png',
-                alt: 'Term selection interface',
-            },
-            {
-                type: 'image',
-                src: '/images/projects/MDP - course add.png',
-                alt: 'Adding a course to the planner',
-            },
-            {
-                type: 'image',
-                src: '/images/projects/MDP - course remove NEW.png',
-                alt: 'Removing a course from the planner',
-            },
-            {
-                type: 'image',
-                src: '/images/projects/MDP - course set grade.png',
-                alt: 'Setting a grade for a course',
-            },
+            { type: 'image', src: mdpTerm, alt: 'Term selection interface' },
+            { type: 'image', src: mdpAdd, alt: 'Adding a course to the planner' },
+            { type: 'image', src: mdpRemove, alt: 'Removing a course from the planner' },
+            { type: 'image', src: mdpSetGrade, alt: 'Setting a grade for a course' },
+        ],
+    },
+    {
+        title: 'Help Help (McHacks 12)',
+        summary:
+            'Hackathon web app for interview practice that records responses, transcribes speech with Whisper, and uses GPT-4 to generate feedback on clarity and professionalism. Includes webcam-based eye-contact tracking and metrics like speaking speed and word-density to give actionable practice insights.',
+        description: `At McHacks 12, I worked in a team of 4 over 24h to create a web app that helps job-seekers practice for interviews. The app gives you a random question from one of three categories, and lets users record themselves responding to the question, during which a css-animated pair of eyes watch you to simulate the feeling of being watched during an interview. Once the user stops recording, the response is submitted to OpenAI's Whisper API for transcription of the audio into text, and a summary of the response is displayed to the user, providing key metrics like the size of the response, the speed at which they spoke, and the amount of eye contact made with the webcam, and, most importantly, a paragraph generated from OpenAI's GPT-4 API giving feedback on the language used, with a focus on themes like professionallism, conciseness, and clarity. We also chose to calculate word density, and highlight the overly 'dense' words in the response, as a means of pointing out potentially excessive repetition (e.g. 'like ... like ... like'). This feature ended up looking pretty cool, however we would have liked to include a stopword list to filter out words that are ok to repeat, such as 'the' or 'and', in order to avoid highlighting them.
+
+The app has a simple Flask backend that sends API requests for the speech-to-text conversion and then feedback generation, handles the inference of the vision model that tracks the user's eyes, and calculates some relevant metrics. The data is then sent back to the frontend on the summary page. The frontend is simple HTML & JavaScript (the latter mainly to record audio), and we opted for TailwindCSS for styling the UI, which helped in designing a UI.`,
+        fromDate: 'Jan 2025',
+        toDate: 'Jan 2025',
+        categories: ['web-dev', 'data-science'],
+        technologies: ['python', 'flask', 'js', 'openai', 'opencv', 'tailwind'],
+        repoUrl: 'https://github.com/LaurenS419/helphelp',
+        postUrl: 'https://devpost.com/software/interview-practice-4w65a2',
+        coverMedia: 3,
+        media: [
+            { type: 'image', src: hhLanding, alt: 'Landing page of the Help Help app' },
+            { type: 'image', src: hhStart, alt: 'Recording interface with animated eyes' },
+            { type: 'image', src: hhStop, alt: 'Interface after stopping the recording' },
+            { type: 'image', src: hhSummary, alt: 'Summary page with feedback and metrics' },
         ],
     },
     {
@@ -170,24 +174,12 @@ By demo time, we had a fully functional system that could handle plenty of clien
         media: [
             {
                 type: 'image',
-                src: '/images/projects/DCP - full view 1.png',
+                src: dcpFull,
                 alt: 'Full system view with manager, workers, and clients',
             },
-            {
-                type: 'image',
-                src: '/images/projects/DCP - manager cropped.png',
-                alt: 'Log output from the manager server',
-            },
-            {
-                type: 'image',
-                src: '/images/projects/DCP - worker logs 1.png',
-                alt: 'Log output from a worker server',
-            },
-            {
-                type: 'image',
-                src: '/images/projects/DCP - worker logs 2.png',
-                alt: 'Log output from another worker server',
-            },
+            { type: 'image', src: dcpMgr, alt: 'Log output from the manager server' },
+            { type: 'image', src: dcpWorker1, alt: 'Log output from a worker server' },
+            { type: 'image', src: dcpWorker2, alt: 'Log output from another worker server' },
         ],
     },
     {
@@ -205,26 +197,10 @@ The aim of the game is for users to create their own quizzes by selecting specif
         repoUrl: 'https://github.com/tancredelg/map-quiz-game',
         coverMedia: 1,
         media: [
-            {
-                type: 'image',
-                src: '/images/projects/Cartographe - France hovered (cities hidden).png',
-                alt: 'Map showing France highlighted',
-            },
-            {
-                type: 'image',
-                src: '/images/projects/Cartographe - Singapore hovered (cities rank 0-3).png',
-                alt: 'Map showing Singapore with city ranks',
-            },
-            {
-                type: 'image',
-                src: '/images/projects/Cartographe - Panama City hovered (all cities).png',
-                alt: 'Map showing Panama City',
-            },
-            {
-                type: 'image',
-                src: '/images/projects/Cartographe - Greece mesh.png',
-                alt: 'Generated 3D mesh for Greece',
-            },
+            { type: 'image', src: cartoFrance, alt: 'Map showing France highlighted' },
+            { type: 'image', src: cartoSing, alt: 'Map showing Singapore with city ranks' },
+            { type: 'image', src: cartoPanama, alt: 'Map showing Panama City' },
+            { type: 'image', src: cartoGreece, alt: 'Generated 3D mesh for Greece' },
         ],
     },
     {
@@ -239,18 +215,59 @@ After finally achieving a working simulation, vectorizing the code via numpy mad
         fromDate: 'Apr 2024',
         toDate: 'Apr 2024',
         categories: ['computer-graphics'],
-        technologies: ['python', 'moderngl'],
+        technologies: ['python'],
+        repoUrl: 'https://github.com/tancredelg/stam-fluid-sim',
+        coverMedia: 0,
+        media: [
+            { type: 'image', src: efsScreenshot, alt: 'Screenshot of the fluid simulation' },
+            {
+                type: 'video',
+                src: efsVid,
+                alt: 'Video of the fluid simulation with a sink and source',
+            },
+        ],
+    },
+    {
+        title: 'Unix-like File System',
+        summary:
+            'A file system built from scratch in C, featuring a superblock, inodes with direct/indirect pointers, and a free-block bitmap. Implemented a full API for file operations like creating, writing, reading, and seeking, providing a low-level understanding of disk and data management.',
+        description: `This project involved designing and building a Unix-style file system from the ground up in C. The system is composed of four main regions: a superblock for storing high-level metadata, an inode table for file representation, a region for data blocks, and a free bitmap for managing disk space allocation.
+
+The design features inodes with 12 direct pointers and one single-level indirect pointer, allowing for a maximum file size of 268KB. The file system supports a single root directory, and its API provides core functionalities like creating, opening, reading, writing, seeking, and removing files. A key part of the design was calculating the proportional allocation of disk space for each region based on the total file system size and an assumed average file size, which provided insight into the trade-offs inherent in file system design.
+
+Implementing the full API, from managing file descriptors to handling byte-level read/write operations and updating the on-disk structures, was a deep dive into low-level systems programming and data management. It was a challenging but rewarding experience that solidified my understanding of how operating systems interact with storage hardware.`,
+        fromDate: 'Dec 2023',
+        toDate: 'Dec 2023',
+        categories: ['systems'],
+        technologies: ['c'],
+        repoUrl: 'https://github.com/tancredelg/simple-file-system',
         coverMedia: 0,
         media: [
             {
                 type: 'image',
-                src: '/images/projects/EFS - screenshot cropped.png',
-                alt: 'Screenshot of the fluid simulation',
+                src: sfsCodeScreenshot,
+                alt: 'Screenshot of the sfs_write() function code',
             },
+        ],
+    },
+    {
+        title: 'KotFM Movie Coverage Analysis',
+        summary:
+            "A group data science project analyzing news coverage of 'Killers of the Flower Moon' against other major films. My contributions included scripting the data collection via NewsAPI, computing word frequency and tf-idf scores, and creating visualizations like stacked bar charts and a network graph to compare article topics and coverage proportions.",
+        description: `A final group project for a data science class, analyzing the relative amount and types of coverage for "Killers of the Flower Moon" compared to other major films released around the same time. We classified articles into eight categories—from "Plot and Production" to "Critical Reviews"—to quantify media focus.
+
+My primary contributions were in data collection, analysis, and visualization. I developed the Python scripts to gather a comprehensive dataset of news articles using the NewsAPI. After the data was cleaned, I implemented the logic to compute word frequency and tf-idf scores, which were crucial for categorizing articles and identifying the most salient terms for each topic. I also handled most of the visualization, creating a stacked bar chart to show the proportional topic coverage for each film and a bipartite graph with networkx to map the relationships between movies and news categories. The project culminated in a formal report detailing our findings.`,
+        fromDate: 'Nov 2023',
+        toDate: 'Dec 2023',
+        categories: ['data-science'],
+        technologies: ['python'],
+        repoUrl: 'https://github.com/tancredelg/kotfm-news-coverage-analysis',
+        coverMedia: 0,
+        media: [
             {
-                type: 'video',
-                src: '/images/projects/EFS - sink source compressed.mp4',
-                alt: 'Video of the fluid simulation with a sink and source',
+                type: 'image',
+                src: kfmaReportScreenshot,
+                alt: 'Screenshot of the KotFM Movie Analysis report',
             },
         ],
     },
@@ -270,17 +287,9 @@ Learning UE5 has definitely been intense compared to Unity, but exploring such a
         technologies: ['unreal'],
         coverMedia: 0,
         media: [
-            {
-                type: 'image',
-                src: '/images/projects/MM - health pack.png',
-                alt: 'Player collecting a health pack',
-            },
-            {
-                type: 'image',
-                src: '/images/projects/MM - return to play area.png',
-                alt: 'Warning message to return to the play area',
-            },
-            { type: 'image', src: '/images/projects/MM - dead.png', alt: 'Player death screen' },
+            { type: 'image', src: mmHealth, alt: 'Player collecting a health pack' },
+            { type: 'image', src: mmReturn, alt: 'Warning message to return to the play area' },
+            { type: 'image', src: mmDead, alt: 'Player death screen' },
         ],
     },
     {
@@ -299,41 +308,13 @@ The game also features a skill tree and leveling system, where players can spend
         repoUrl: 'https://github.com/tancredelg/storm-the-stronghold',
         coverMedia: 2,
         media: [
-            {
-                type: 'image',
-                src: '/images/projects/STS - mid game fighting enemies with sword.png',
-                alt: 'Player fighting enemies with a sword',
-            },
-            {
-                type: 'image',
-                src: '/images/projects/STS - in game entering portal room.png',
-                alt: 'Player entering a portal room',
-            },
-            {
-                type: 'image',
-                src: '/images/projects/STS - in game shooting arrow.png',
-                alt: 'Player shooting an arrow',
-            },
-            {
-                type: 'image',
-                src: '/images/projects/STS - skill tree.png',
-                alt: 'The in-game skill tree',
-            },
-            {
-                type: 'image',
-                src: '/images/projects/STS - death screen.png',
-                alt: 'The game over screen',
-            },
-            {
-                type: 'image',
-                src: '/images/projects/STS - load save screen.png',
-                alt: 'The load game screen',
-            },
-            {
-                type: 'video',
-                src: '/images/projects/STS - tests video compressed.mp4',
-                alt: 'Gameplay video montage',
-            },
+            { type: 'image', src: stsMid, alt: 'Player fighting enemies with a sword' },
+            { type: 'image', src: stsPortal, alt: 'Player entering a portal room' },
+            { type: 'image', src: stsArrow, alt: 'Player shooting an arrow' },
+            { type: 'image', src: stsSkill, alt: 'The in-game skill tree' },
+            { type: 'image', src: stsDeath, alt: 'The game over screen' },
+            { type: 'image', src: stsLoad, alt: 'The load game screen' },
+            { type: 'video', src: stsVid, alt: 'Gameplay video montage' },
         ],
     },
     {
@@ -348,32 +329,12 @@ Making this game taught me lots about grids and tilemaps, collision types and co
         technologies: ['unity'],
         coverMedia: 2,
         media: [
-            {
-                type: 'image',
-                src: '/images/projects/DE - menu screen.png',
-                alt: 'Main menu screen',
-            },
-            {
-                type: 'image',
-                src: '/images/projects/DE - jump shot.png',
-                alt: 'Player shooting while jumping',
-            },
-            {
-                type: 'image',
-                src: '/images/projects/DE - rising water.png',
-                alt: 'Water level rising in the dungeon',
-            },
-            {
-                type: 'image',
-                src: '/images/projects/DE - running in tunnel.png',
-                alt: 'Player running through a tunnel',
-            },
-            { type: 'image', src: '/images/projects/DE - game over.png', alt: 'Game over screen' },
-            {
-                type: 'image',
-                src: '/images/projects/DE - end screen.png',
-                alt: 'Level completion screen',
-            },
+            { type: 'image', src: deMenu, alt: 'Main menu screen' },
+            { type: 'image', src: deJump, alt: 'Player shooting while jumping' },
+            { type: 'image', src: deRising, alt: 'Water level rising in the dungeon' },
+            { type: 'image', src: deRun, alt: 'Player running through a tunnel' },
+            { type: 'image', src: deGameOver, alt: 'Game over screen' },
+            { type: 'image', src: deEnd, alt: 'Level completion screen' },
         ],
     },
     {
@@ -388,17 +349,9 @@ This was a great project for learning about all sorts of things in the Unity gam
         technologies: ['unity'],
         coverMedia: 0,
         media: [
-            {
-                type: 'image',
-                src: '/images/projects/GG - mid level.png',
-                alt: 'Mid-game screenshot of a level',
-            },
-            {
-                type: 'image',
-                src: '/images/projects/GG - level complete.png',
-                alt: 'Level complete screen',
-            },
-            { type: 'image', src: '/images/projects/GG - game over.png', alt: 'Game over screen' },
+            { type: 'image', src: ggMid, alt: 'Mid-game screenshot of a level' },
+            { type: 'image', src: ggComplete, alt: 'Level complete screen' },
+            { type: 'image', src: ggGameOver, alt: 'Game over screen' },
         ],
     },
 ]

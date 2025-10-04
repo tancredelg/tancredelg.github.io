@@ -3,8 +3,8 @@ export interface EducationProps {
         name: string // Name of the institution
         url: string // URL to the institution's website
         logo?: {
-            src: string // Source URL of the image
-            alt?: string // Alternative text for the image, optional
+            type: 'img' | 'svg' | 'html'
+            value: string | ImageMetadata | ((props: any) => any) // Source URL of the image or a component/function returning an image
         }
     }
     degree: string // Degree title
@@ -13,14 +13,18 @@ export interface EducationProps {
     description: string
 }
 
+import epflLogo from '../assets/logos-icons/epfl-logo-cropped.png'
+import mcgillLogo from '../assets/logos-icons/mcgill-logo-s.jpg'
+import epsomCollegeLogo from '../assets/logos-icons/epsom-college-logo-s.jpg'
+
 export const education: EducationProps[] = [
     {
         institution: {
             name: 'EPFL',
             url: 'https://www.epfl.ch',
             logo: {
-                src: '/images/epfl-logo-cropped.png',
-                alt: 'EPFL Logo',
+                type: 'img',
+                value: epflLogo,
             },
         },
         degree: 'MSc - Robotics',
@@ -33,8 +37,8 @@ export const education: EducationProps[] = [
             name: 'McGill University',
             url: 'https://www.mcgill.ca',
             logo: {
-                src: '/images/mcgill-logo-s.jpg',
-                alt: 'McGill University Logo',
+                type: 'img',
+                value: mcgillLogo,
             },
         },
         degree: 'BSc - Honours Computer Science',
@@ -47,8 +51,8 @@ export const education: EducationProps[] = [
             name: 'Epsom College',
             url: 'https://www.epsomcollege.org.uk/',
             logo: {
-                src: '/images/epsom-college-logo-s.jpg',
-                alt: 'Epsom College Logo',
+                type: 'img',
+                value: epsomCollegeLogo,
             },
         },
         degree: 'A-Levels (CS, Math, Phys) & GCSEs',

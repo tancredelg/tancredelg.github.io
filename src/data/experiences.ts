@@ -3,8 +3,8 @@ export interface ExperienceProps {
         name: string
         url: string // URL to the company/organization's website
         logo?: {
-            src: string // Source URL of the image
-            alt?: string // Alternative text for the image, optional
+            type: 'img' | 'svg' | 'html'
+            value: string | ImageMetadata | ((props: any) => any) // Source URL of the image or a component/function returning an image
         }
     }
     positions: {
@@ -16,14 +16,16 @@ export interface ExperienceProps {
     }[]
 }
 
+import mcgillRoboticsLogo from '../assets/logos-icons/mcgill-robotics-logo.png'
+
 export const experiences: ExperienceProps[] = [
     {
         company: {
             name: 'McGill Robotics',
             url: 'https://mcgillrobotics.com',
             logo: {
-                src: '/images/mcgill-robotics-logo.png',
-                alt: 'McGill Robotics Logo',
+                type: 'img',
+                value: mcgillRoboticsLogo,
             },
         },
         positions: [

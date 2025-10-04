@@ -48,6 +48,14 @@ html {
 
 body {
     @apply w-full lg:h-full;
+    opacity: 0;
+    transform: scale(0.1);
+    transition: opacity 1s cubic-bezier(0.2, 0, 0, 1), transform 0.8s cubic-bezier(0, 1, 0, 1);
+
+    &.body-animate-in {
+        opacity: 1;
+        transform: scale(1);
+    }
 
     > * {
         @apply h-full overflow-y-auto min-h-0;
@@ -155,6 +163,14 @@ h2 {
 
         #content {
             @apply z-1 flex flex-col gap-0.5 justify-between;
+
+            p {
+                text-shadow: 0 0 5px rgba(0, 0, 0, 0.85);
+            }
+
+            h4 {
+                text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            }
         }
 
         #urls {
